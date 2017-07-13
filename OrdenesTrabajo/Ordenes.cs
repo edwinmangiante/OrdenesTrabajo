@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Office.Interop.Excel;
 
 namespace OrdenesTrabajo
 {
@@ -284,12 +285,77 @@ namespace OrdenesTrabajo
         {
             btnSalirClicked = false;
             if (ordenesTrabajo.DataSource != null && ordenesTrabajo.DataSource.Count > 0)
-            {
-                //exportar a excel!
-                Controller.MensajeInformacion("Se exportó la grilla de las ordenes de trabajo correctamente.");
-            }
+                ExportToExcel();
             else
                 Controller.MensajeInformacion("No hay datos en la grilla para exportar a excel.");
+        }
+
+        private void ExportToExcel()
+        {
+            _Application excel = new Microsoft.Office.Interop.Excel.Application();
+            _Workbook workbook = excel.Workbooks.Add(Type.Missing);
+            _Worksheet worksheet = null;
+
+            try
+            {
+                worksheet = workbook.ActiveSheet;
+                worksheet.Name = "Ordenes de Trabajo";
+
+                int nroFila = 1;
+                foreach (OrdenTrabajo fila in ordenesTrabajo.DataSource)
+                {
+                    if (nroFila == 1)
+                    {
+                        //Crear header en la 1er fila!
+                        worksheet.Cells[nroFila, 1] = "Orden";
+                        worksheet.Cells[nroFila, 2] = "Descripción";
+                        worksheet.Cells[nroFila, 3] = "Observación";
+                        worksheet.Cells[nroFila, 4] = "Dirección";
+                        worksheet.Cells[nroFila, 5] = "Tipo";
+                        worksheet.Cells[nroFila, 6] = "Fecha LG";
+                        worksheet.Cells[nroFila, 7] = "Usuario";
+                        worksheet.Cells[nroFila, 8] = "Fecha Cierre";
+                        worksheet.Cells[nroFila, 9] = "Fecha Alta";
+                        worksheet.Cells[nroFila, 10] = "Fecha Baja";
+                    }
+                    else
+                    {
+                        worksheet.Cells[nroFila, 1] = fila.Codigo;
+                        worksheet.Cells[nroFila, 2] = fila.Descripcion;
+                        worksheet.Cells[nroFila, 3] = fila.Observaciones;
+                        worksheet.Cells[nroFila, 4] = fila.Direccion;
+                        worksheet.Cells[nroFila, 5] = fila.Tipo;
+                        worksheet.Cells[nroFila, 6] = fila.FechaLG.ToString("dd/MM/yyyy");
+                        worksheet.Cells[nroFila, 7] = fila.Usuario;
+                        worksheet.Cells[nroFila, 8] = fila.FechaCierre;
+                        worksheet.Cells[nroFila, 9] = fila.FechaAlta;
+                        worksheet.Cells[nroFila, 10] = fila.FechaBaja;
+                    }
+
+                    nroFila++;
+                }
+
+                SaveFileDialog save = new SaveFileDialog();
+                save.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
+                save.FilterIndex = 2;
+
+                if (save.ShowDialog() == DialogResult.OK)
+                {
+                    workbook.SaveAs(save.FileName);
+                    Controller.MensajeInformacion("Se exportó la grilla de las ordenes de trabajo correctamente.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Controller.MensajeError("Ocurrió un error al intentar exportar los datos a excel, por favor intente " +
+                    "nuevamente y si el error persiste comuniquese con sistemas. (" + ex.Message + ").");
+            }
+            finally
+            {
+                excel.Quit();
+                workbook = null;
+                excel = null;
+            }
         }
 
         private void bindingSourceOrdenes_CurrentChanged(object sender, EventArgs e)
