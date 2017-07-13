@@ -17,6 +17,7 @@ namespace OrdenesTrabajo
 {
     public partial class Ordenes : Form
     {
+        private bool btnSalirClicked = false;
         private OrdenesTrab ordenesTrabajo = new OrdenesTrab();
 
         public Ordenes()
@@ -93,6 +94,9 @@ namespace OrdenesTrabajo
         private void OrdenesFrm_Load(object sender, EventArgs e)
         {
             this.BringToFront();
+            this.CancelButton = btnSalir as IButtonControl;
+            toolStripSalir.CausesValidation = false;
+            btnSalirClicked = false;
             DateTime ahora = Controller.GetDateTime();
             dtpFechaDesde.Value = ahora.AddDays(-90);
             dtpFechaHasta.Value = ahora;
@@ -151,11 +155,13 @@ namespace OrdenesTrabajo
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
+            btnSalirClicked = true;
             this.Close();
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
+            btnSalirClicked = false;
             LimpiarCamposFormulario.InicializarControles(this);
             ordenesTrabajo.Limpiar();
             DateTime ahora = Controller.GetDateTime();
@@ -166,6 +172,7 @@ namespace OrdenesTrabajo
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            btnSalirClicked = false;
             if (true) //solo si tiene los permisos pertinentes, sino no tendría que ver el botón!
             {
                 if (ordenesTrabajo.Current != null)
@@ -176,6 +183,7 @@ namespace OrdenesTrabajo
 
         private void btnVer_Click(object sender, EventArgs e)
         {
+            btnSalirClicked = false;
             if (ordenesTrabajo.Current != null)
                 using (AEOrdenes aerOrd = new AEOrdenes(ordenesTrabajo.Current.Clone(), "Ver"))
                     if (aerOrd.ShowDialog() == DialogResult.OK)
@@ -184,6 +192,7 @@ namespace OrdenesTrabajo
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            btnSalirClicked = false;
             //ver si hay que hacer validaciones!!
             ParametrosBusquedaOrdenes parametros = MapearParametrosBusqueda();
             ordenesTrabajo.ObtenerPorParametros(parametros);
@@ -220,6 +229,7 @@ namespace OrdenesTrabajo
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            btnSalirClicked = false;
             using (AEOrdenes aeOrd = new AEOrdenes())
                 if (aeOrd.ShowDialog() == DialogResult.OK)
                     ordenesTrabajo.Crear(aeOrd.Orden);
@@ -227,6 +237,7 @@ namespace OrdenesTrabajo
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            btnSalirClicked = false;
             if (ordenesTrabajo.Current != null)
                 using (AEOrdenes aerOrd = new AEOrdenes(ordenesTrabajo.Current.Clone(), "Editar"))
                     if (aerOrd.ShowDialog() == DialogResult.OK)
@@ -235,6 +246,7 @@ namespace OrdenesTrabajo
 
         private void btnBaja_Click(object sender, EventArgs e)
         {
+            btnSalirClicked = false;
             if (ordenesTrabajo.Current != null && !ordenesTrabajo.Current.FechaBaja.HasValue)
                 if (Controller.MensajeYesNo("¿Está seguro que quiere dar de baja la orden de trabajo seleccionada?"))
                     ordenesTrabajo.Baja(ordenesTrabajo.Current);
@@ -242,6 +254,7 @@ namespace OrdenesTrabajo
 
         private void btnAlta_Click(object sender, EventArgs e)
         {
+            btnSalirClicked = false;
             if (ordenesTrabajo.Current != null && ordenesTrabajo.Current.FechaBaja.HasValue)
                 if (Controller.MensajeYesNo("¿Está seguro que quiere dar de alta la orden de trabajo seleccionada?"))
                     ordenesTrabajo.Alta(ordenesTrabajo.Current);
@@ -249,6 +262,7 @@ namespace OrdenesTrabajo
 
         private void btnCierre_Click(object sender, EventArgs e)
         {
+            btnSalirClicked = false;
             if (ordenesTrabajo.Current != null && !ordenesTrabajo.Current.FechaCierre.HasValue)
                 if (Controller.MensajeYesNo("¿Está seguro que quiere ponerle fecha de cierre a la orden de trabajo seleccionada?"))
                     ordenesTrabajo.Cierre(ordenesTrabajo.Current);
@@ -256,6 +270,7 @@ namespace OrdenesTrabajo
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
+            btnSalirClicked = false;
             if (ordenesTrabajo.DataSource != null && ordenesTrabajo.DataSource.Count > 0)
             {
                 //imprimir grilla
@@ -267,6 +282,7 @@ namespace OrdenesTrabajo
 
         private void btnExportar_Click(object sender, EventArgs e)
         {
+            btnSalirClicked = false;
             if (ordenesTrabajo.DataSource != null && ordenesTrabajo.DataSource.Count > 0)
             {
                 //exportar a excel!
@@ -331,24 +347,26 @@ namespace OrdenesTrabajo
 
         private void dtpFechaDesde_Validating(object sender, CancelEventArgs e)
         {
-            if (dtpFechaDesde.Value > dtpFechaHasta.Value)
-            {
-                Controller.MensajeError("La fecha desde no puede ser mayor a la fecha hasta, verifique.");
-                DateTime ahora = Controller.GetDateTime();
-                dtpFechaDesde.Value = ahora.AddDays(-90);
-                dtpFechaHasta.Value = ahora;
-            }
+            if (!btnSalirClicked)
+                if (dtpFechaDesde.Value > dtpFechaHasta.Value)
+                {
+                    Controller.MensajeError("La fecha desde no puede ser mayor a la fecha hasta, verifique.");
+                    DateTime ahora = Controller.GetDateTime();
+                    dtpFechaDesde.Value = ahora.AddDays(-90);
+                    dtpFechaHasta.Value = ahora;
+                }
         }
 
         private void dtpFechaHasta_Validating(object sender, CancelEventArgs e)
         {
-            if (dtpFechaDesde.Value > dtpFechaHasta.Value)
-            {
-                Controller.MensajeError("La fecha hasta tiene que ser menor o igual a la fecha desde, verifique.");
-                DateTime ahora = Controller.GetDateTime();
-                dtpFechaDesde.Value = ahora.AddDays(-90);
-                dtpFechaHasta.Value = ahora;
-            }
+            if (!btnSalirClicked)
+                if (dtpFechaDesde.Value > dtpFechaHasta.Value)
+                {
+                    Controller.MensajeError("La fecha hasta tiene que ser menor o igual a la fecha desde, verifique.");
+                    DateTime ahora = Controller.GetDateTime();
+                    dtpFechaDesde.Value = ahora.AddDays(-90);
+                    dtpFechaHasta.Value = ahora;
+                }
         }
 
         private void chbIncluirBajas_CheckedChanged(object sender, EventArgs e)

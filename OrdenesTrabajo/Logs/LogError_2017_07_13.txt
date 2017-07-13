@@ -1,0 +1,20 @@
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Fecha: 13/07/2017 10:40:57
+User: dedwin			Machine Name: RPUESTO02			Ip Address: fe80::6c64:f6e6:ebe9:1b7d%14
+Método: ObtenerTodos			UserLog en App: 			Tipo de Error: System.InvalidOperationException
+Mensaje Excepción: 
+No se ha inicializado la propiedad ConnectionString.
+Excepción: 
+System.InvalidOperationException: No se ha inicializado la propiedad ConnectionString.
+   en System.Data.SqlClient.SqlConnection.PermissionDemand()
+   en System.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   en System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   en System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   en System.Data.SqlClient.SqlConnection.Open()
+   en DAL.OrdenTrabajo.ObtenerTodos(ParametrosBusquedaOrdenes parametros, SqlConnection connection) en D:\Dedwin\Proyectos\OrdenesTrabajo\DAL\OrdenTrabajo.cs:línea 249
+   en DAL.OrdenTrabajo.ObtenerTodos(ParametrosBusquedaOrdenes parametros) en D:\Dedwin\Proyectos\OrdenesTrabajo\DAL\OrdenTrabajo.cs:línea 83
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+

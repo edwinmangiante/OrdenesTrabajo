@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ordenes));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStripSalir = new System.Windows.Forms.ToolStrip();
             this.btnSalir = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -77,6 +77,8 @@
             this.toolStripGrilla = new System.Windows.Forms.ToolStrip();
             this.btnLimpiar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnEliminar = new System.Windows.Forms.ToolStripButton();
+            this.tssEliminar = new System.Windows.Forms.ToolStripSeparator();
             this.btnVer = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.btnBuscar = new System.Windows.Forms.ToolStripButton();
@@ -96,8 +98,6 @@
             this.btnExportar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.lblCantidad = new System.Windows.Forms.ToolStripLabel();
-            this.tssEliminar = new System.Windows.Forms.ToolStripSeparator();
-            this.btnEliminar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSalir.SuspendLayout();
             this.groupBoxFiltros.SuspendLayout();
             this.groupBoxGrilla.SuspendLayout();
@@ -346,14 +346,14 @@
             this.dataGridViewOrdenes.AllowUserToResizeColumns = false;
             this.dataGridViewOrdenes.AllowUserToResizeRows = false;
             this.dataGridViewOrdenes.AutoGenerateColumns = false;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewOrdenes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewOrdenes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewOrdenes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewOrdenes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.codigoInternoDataGridViewTextBoxColumn,
@@ -369,27 +369,27 @@
             this.fechaAltaDataGridViewTextBoxColumn,
             this.fechaBajaDataGridViewTextBoxColumn});
             this.dataGridViewOrdenes.DataSource = this.bindingSourceOrdenes;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewOrdenes.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewOrdenes.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewOrdenes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewOrdenes.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewOrdenes.MultiSelect = false;
             this.dataGridViewOrdenes.Name = "dataGridViewOrdenes";
             this.dataGridViewOrdenes.ReadOnly = true;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewOrdenes.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewOrdenes.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewOrdenes.RowHeadersVisible = false;
             this.dataGridViewOrdenes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewOrdenes.Size = new System.Drawing.Size(965, 240);
@@ -460,8 +460,8 @@
             // fechaCierreDataGridViewTextBoxColumn
             // 
             this.fechaCierreDataGridViewTextBoxColumn.DataPropertyName = "FechaCierre";
-            dataGridViewCellStyle8.Format = "dd/MM/yyyy";
-            this.fechaCierreDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Format = "dd/MM/yyyy";
+            this.fechaCierreDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.fechaCierreDataGridViewTextBoxColumn.HeaderText = "Cierre";
             this.fechaCierreDataGridViewTextBoxColumn.Name = "fechaCierreDataGridViewTextBoxColumn";
             this.fechaCierreDataGridViewTextBoxColumn.ReadOnly = true;
@@ -477,8 +477,8 @@
             // fechaAltaDataGridViewTextBoxColumn
             // 
             this.fechaAltaDataGridViewTextBoxColumn.DataPropertyName = "FechaAlta";
-            dataGridViewCellStyle9.Format = "dd/MM/yyyy";
-            this.fechaAltaDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Format = "dd/MM/yyyy";
+            this.fechaAltaDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.fechaAltaDataGridViewTextBoxColumn.HeaderText = "Alta";
             this.fechaAltaDataGridViewTextBoxColumn.Name = "fechaAltaDataGridViewTextBoxColumn";
             this.fechaAltaDataGridViewTextBoxColumn.ReadOnly = true;
@@ -486,8 +486,8 @@
             // fechaBajaDataGridViewTextBoxColumn
             // 
             this.fechaBajaDataGridViewTextBoxColumn.DataPropertyName = "FechaBaja";
-            dataGridViewCellStyle10.Format = "dd/MM/yyyy";
-            this.fechaBajaDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.Format = "dd/MM/yyyy";
+            this.fechaBajaDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
             this.fechaBajaDataGridViewTextBoxColumn.HeaderText = "Baja";
             this.fechaBajaDataGridViewTextBoxColumn.Name = "fechaBajaDataGridViewTextBoxColumn";
             this.fechaBajaDataGridViewTextBoxColumn.ReadOnly = true;
@@ -543,6 +543,22 @@
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
             this.toolStripSeparator7.Size = new System.Drawing.Size(6, 25);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Enabled = false;
+            this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
+            this.btnEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(93, 22);
+            this.btnEliminar.Text = "F3 - Eliminar";
+            this.btnEliminar.ToolTipText = "Eliminar";
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // tssEliminar
+            // 
+            this.tssEliminar.Name = "tssEliminar";
+            this.tssEliminar.Size = new System.Drawing.Size(6, 25);
             // 
             // btnVer
             // 
@@ -693,28 +709,11 @@
             this.lblCantidad.Size = new System.Drawing.Size(13, 15);
             this.lblCantidad.Text = "c";
             // 
-            // tssEliminar
-            // 
-            this.tssEliminar.Name = "tssEliminar";
-            this.tssEliminar.Size = new System.Drawing.Size(6, 25);
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Enabled = false;
-            this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
-            this.btnEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(93, 22);
-            this.btnEliminar.Text = "F3 - Eliminar";
-            this.btnEliminar.ToolTipText = "Eliminar";
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
             // Ordenes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(971, 409);
-            this.ControlBox = false;
             this.Controls.Add(this.groupBoxGrilla);
             this.Controls.Add(this.groupBoxFiltros);
             this.Controls.Add(this.toolStripSalir);
