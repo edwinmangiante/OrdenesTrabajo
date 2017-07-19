@@ -68,6 +68,12 @@
       <DependentUpon>Contenedor.cs</DependentUpon>
     </Compile>
     <Compile Include="Controles\Controller.cs" />
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ordenes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +87,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Contenedor.resx">
       <DependentUpon>Contenedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ordenes.resx">
       <DependentUpon>Ordenes.cs</DependentUpon>
@@ -122,6 +131,7 @@
     <Content Include="Imgs\edit.png" />
     <Content Include="Imgs\eraser.png" />
     <Content Include="Imgs\excel.png" />
+    <Content Include="Imgs\login.ico" />
     <Content Include="Imgs\print.png" />
     <Content Include="Imgs\search.png" />
   </ItemGroup>

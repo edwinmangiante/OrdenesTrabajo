@@ -40,7 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Conexion\Connection.cs" />
     <Compile Include="LogError.cs" />
+    <Compile Include="Login\Opcion.cs" />
+    <Compile Include="Login\Perfil.cs" />
+    <Compile Include="Login\Usuario.cs" />
     <Compile Include="OrdenTrabajo.cs" />
     <Compile Include="ParametrosBusqueda\ParametrosBusquedaOrdenes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
