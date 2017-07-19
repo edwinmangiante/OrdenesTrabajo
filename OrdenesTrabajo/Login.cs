@@ -28,7 +28,11 @@ namespace OrdenesTrabajo
         {
             if(Valida())
             {
-                if(true)
+                string user = txtUsuario.Text.Split('\\')[1];
+                string dominio = txtUsuario.Text.Split('\\')[0];
+                string contraseña = txtContraseña.Text;
+                Controller.ObtenerUsuario(user, dominio, contraseña);
+                if (Controller.Usuario != null)
                 {
                     this.DialogResult = DialogResult.OK;
                     this.Close();

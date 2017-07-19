@@ -1,4 +1,5 @@
 ﻿using DAL;
+using DAL.Login;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,8 +11,16 @@ namespace OrdenesTrabajo.Controles
 {
     public class Controller
     {
+        public static Usuario Usuario { get; set; }
+
         //acá hay que definir cosas que habría que ir a buscar cdo arranca la app
         //si hay un ws acá estaría una propiedad estática que crearía la conexión!
+
+        public static void ObtenerUsuario(string usuario, string dominio, string contraseña)
+        {
+            Usuario = new Usuario();
+            Usuario = Usuario.ObtenerUsuario(usuario, dominio, contraseña);
+        }
 
         public static void MensajeError(string msj)
         {
