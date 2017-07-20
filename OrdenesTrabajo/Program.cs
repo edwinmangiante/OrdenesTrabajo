@@ -18,24 +18,25 @@ namespace OrdenesTrabajo
         {
             System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("es-AR");
 
-            using (Login login = new Login())
-                if (login.ShowDialog() == DialogResult.OK)
-                {
-                    //LogHandler.Init(typeof(Program).Namespace, LoggingConfiguration.Local);
-                    //cdo el logging este hecho habría que loguear en la carpeta de logs del usr la hs a la que inició la app
-                    //(en un base tb!)
-                    //limpiar la carpeta de logs con los .txt que tengan más de tanto meses de antiguedad.
-                    Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
-                    Application.ThreadException += Application_ThreadException;
-                    AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
-                    Application.EnableVisualStyles();
-                    Application.SetCompatibleTextRenderingDefault(false);
-                    AppDomain.CurrentDomain.ProcessExit += new EventHandler(OnProcessExit);
 
+            //LogHandler.Init(typeof(Program).Namespace, LoggingConfiguration.Local);
+            //cdo el logging este hecho habría que loguear en la carpeta de logs del usr la hs a la que inició la app
+            //(en un base tb!)
+            //limpiar la carpeta de logs con los .txt que tengan más de tanto meses de antiguedad.
+            Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
+            Application.ThreadException += Application_ThreadException;
+            AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            AppDomain.CurrentDomain.ProcessExit += new EventHandler(OnProcessExit);
+
+            using (Login login = new Login())
+            {
+                if (login.ShowDialog() == DialogResult.OK)
                     Application.Run(new Contenedor());
-                }
                 else
                     Application.Exit();
+            }
         }
 
         private static void Application_ThreadException(object sender, System.Threading.ThreadExceptionEventArgs e)

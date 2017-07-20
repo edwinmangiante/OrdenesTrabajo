@@ -3,6 +3,7 @@ using DAL.Login;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,8 +19,11 @@ namespace OrdenesTrabajo.Controles
 
         public static void ObtenerUsuario(string usuario, string dominio, string contraseña)
         {
+            AssemblyProductAttribute myProduct = (AssemblyProductAttribute)AssemblyProductAttribute.GetCustomAttribute(Assembly.GetExecutingAssembly(),
+                typeof(AssemblyProductAttribute));
+            string appName = myProduct.Product;
             Usuario = new Usuario();
-            Usuario = Usuario.ObtenerUsuario(usuario, dominio, contraseña);
+            Usuario = Usuario.ObtenerUsuario(usuario, dominio, contraseña, appName);
         }
 
         public static void MensajeError(string msj)

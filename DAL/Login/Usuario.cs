@@ -35,7 +35,7 @@ namespace DAL.Login
 
         #region Métodos
 
-        public static Usuario ObtenerUsuario(string user, string dominio, string contraseña)
+        public static Usuario ObtenerUsuario(string user, string dominio, string contraseña, string appName)
         {
             try
             {
@@ -44,7 +44,7 @@ namespace DAL.Login
                 usuario.Domain = dominio;
                 usuario.Password = contraseña;
                 SqlConnection connection = null;
-                return ObtenerUsuario(usuario, connection);
+                return ObtenerUsuario(usuario, appName, connection);
             }
             catch (Exception ex)
             {
@@ -52,12 +52,12 @@ namespace DAL.Login
             }
         }
 
-        private static Usuario ObtenerUsuario(Usuario usuario, SqlConnection connection)
+        private static Usuario ObtenerUsuario(Usuario usuario, string appName, SqlConnection connection)
         {
             connection = Connection.Conectar("login");
             if (connection != null)
             {
-                if (connection.State == ConnectionState.Closed)
+                if (connection.State != ConnectionState.Open)
                     connection.Open();
 
                 Usuario usu = null;
@@ -77,9 +77,9 @@ namespace DAL.Login
                             usu.Nombre = reader["usu_nombre"].ToString();
                             usu.Apellido = reader["usu_apellido"].ToString();
                             usu.CodigoPerfil = Convert.ToInt32(reader["usu_per_codigo"]);
-                            usu.PerfilUsuario = Perfil.ObtenerPerfilPorUsuario(usu);
+                            usu.PerfilUsuario = Perfil.ObtenerPerfilPorUsuario(usu, appName);
                             usu.FechaAlta = Convert.ToDateTime(reader["usu_fecha_alta"]);
-                            usu.FechaBaja = reader["usu_fecha_baja"] != null ? Convert.ToDateTime(reader["usu_fecha_baja"]) : (DateTime?)null;
+                            usu.FechaBaja = reader["usu_fecha_baja"] != DBNull.Value ? Convert.ToDateTime(reader["usu_fecha_baja"]) : (DateTime?)null;
                         }
                     }
                 }

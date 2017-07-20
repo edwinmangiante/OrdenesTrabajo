@@ -1,0 +1,47 @@
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Fecha: 20/07/2017 11:32:12
+User: dedwin			Machine Name: RPUESTO02			Ip Address: fe80::6c64:f6e6:ebe9:1b7d%14
+Método: Application_ThreadException			UserLog en App: 			Tipo de Error: System.InvalidCastException
+Mensaje Excepción: 
+Error al convertir el valor del parámetro de AssemblyName a String.
+Excepción: 
+System.InvalidCastException: Error al convertir el valor del parámetro de AssemblyName a String. ---> System.InvalidCastException: El objeto debe implementar IConvertible.
+   en System.Convert.ChangeType(Object value, Type conversionType, IFormatProvider provider)
+   en System.Data.SqlClient.SqlParameter.CoerceValue(Object value, MetaType destinationType, Boolean& coercedToDataFeed, Boolean& typeChanged, Boolean allowStreaming)
+   --- Fin del seguimiento de la pila de la excepción interna ---
+   en DAL.Login.Usuario.ObtenerUsuario(String user, String dominio, String contraseña) en D:\Dedwin\Proyectos\OrdenesTrabajo\DAL\Login\Usuario.cs:línea 51
+   en OrdenesTrabajo.Controles.Controller.ObtenerUsuario(String usuario, String dominio, String contraseña) en D:\Dedwin\Proyectos\OrdenesTrabajo\OrdenesTrabajo\Controles\Controller.cs:línea 22
+   en OrdenesTrabajo.Login.btnIngresar_Click(Object sender, EventArgs e) en D:\Dedwin\Proyectos\OrdenesTrabajo\OrdenesTrabajo\Login.cs:línea 33
+   en System.Windows.Forms.Control.OnClick(EventArgs e)
+   en System.Windows.Forms.Button.OnClick(EventArgs e)
+   en System.Windows.Forms.Button.PerformClick()
+   en System.Windows.Forms.Form.ProcessDialogKey(Keys keyData)
+   en System.Windows.Forms.TextBoxBase.ProcessDialogKey(Keys keyData)
+   en System.Windows.Forms.Control.PreProcessMessage(Message& msg)
+   en System.Windows.Forms.Control.PreProcessControlMessageInternal(Control target, Message& msg)
+   en System.Windows.Forms.Application.ThreadContext.PreTranslateMessage(MSG& msg)
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Fecha: 20/07/2017 14:16:23
+User: dedwin			Machine Name: RPUESTO02			Ip Address: fe80::6c64:f6e6:ebe9:1b7d%14
+Método: Application_ThreadException			UserLog en App: 			Tipo de Error: System.ArgumentException
+Mensaje Excepción: 
+El formulario especificado como MdiParent para este formulario no es un contenedor MdiContainer.
+Nombre del parámetro: value
+Excepción: 
+System.ArgumentException: El formulario especificado como MdiParent para este formulario no es un contenedor MdiContainer.
+Nombre del parámetro: value
+   en System.Windows.Forms.Form.set_MdiParentInternal(Form value)
+   en System.Windows.Forms.Form.set_MdiParent(Form value)
+   en OrdenesTrabajo.Contenedor.treeViewOpciones_NodeMouseClick(Object sender, TreeNodeMouseClickEventArgs e) en D:\Dedwin\Proyectos\OrdenesTrabajo\OrdenesTrabajo\Contenedor.cs:línea 61
+   en System.Windows.Forms.TreeView.OnNodeMouseClick(TreeNodeMouseClickEventArgs e)
+   en System.Windows.Forms.TreeView.WmNotify(Message& m)
+   en System.Windows.Forms.TreeView.WndProc(Message& m)
+   en System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   en System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   en System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+

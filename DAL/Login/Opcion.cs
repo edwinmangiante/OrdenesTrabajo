@@ -34,12 +34,12 @@ namespace DAL.Login
 
         #region Métodos 
 
-        public static List<Opcion> ObtenerPorPerfil(int codigoPerfil)
+        public static List<Opcion> ObtenerPorPerfil(int codigoPerfil, string appName)
         {
             try
             {
                 SqlConnection connection = null;
-                return ObtenerPorPerfil(codigoPerfil, connection);
+                return ObtenerPorPerfil(codigoPerfil, appName, connection);
             }
             catch (Exception ex)
             {
@@ -47,19 +47,19 @@ namespace DAL.Login
             }
         }
 
-        private static List<Opcion> ObtenerPorPerfil(int codigoPerfil, SqlConnection connection)
+        private static List<Opcion> ObtenerPorPerfil(int codigoPerfil, string appName, SqlConnection connection)
         {
             connection = Connection.Conectar("login");
             if (connection != null)
             {
-                if (connection.State == ConnectionState.Closed)
+                if (connection.State != ConnectionState.Open)
                     connection.Open();
 
                 List<Opcion> opciones = null;
                 using (SqlCommand cmd = new SqlCommand("dbo.ObtieneOpciones", connection))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    AddParameters(cmd, codigoPerfil);
+                    AddParameters(cmd, codigoPerfil, appName);
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
@@ -92,13 +92,12 @@ namespace DAL.Login
                 throw new Exception("La conexión está vacía.");
         }
 
-        private static void AddParameters(SqlCommand cmd, int codigoPerfil)
+        private static void AddParameters(SqlCommand cmd, int codigoPerfil, string appName)
         {
             SqlParameter pa_per_codigo = cmd.Parameters.Add("@per_codigo", SqlDbType.Int);
-            SqlParameter pa_opc_aplicacion = cmd.Parameters.Add("@opc_aplicacion", SqlDbType.VarChar, 50);
-
             pa_per_codigo.Value = codigoPerfil;
-            pa_opc_aplicacion.Value = "OrdenesTrabajo";
+            SqlParameter pa_opc_aplicacion = cmd.Parameters.Add("@opc_aplicacion", SqlDbType.VarChar, 50);
+            pa_opc_aplicacion.Value = appName;
         }
 
         #endregion Métodos

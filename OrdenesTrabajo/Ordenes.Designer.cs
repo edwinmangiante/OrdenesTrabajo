@@ -98,6 +98,8 @@
             this.btnExportar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.lblCantidad = new System.Windows.Forms.ToolStripLabel();
+            this.lblDataUser = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSalir.SuspendLayout();
             this.groupBoxFiltros.SuspendLayout();
             this.groupBoxGrilla.SuspendLayout();
@@ -111,7 +113,9 @@
             // 
             this.toolStripSalir.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnSalir,
-            this.toolStripSeparator1});
+            this.toolStripSeparator1,
+            this.lblDataUser,
+            this.toolStripSeparator12});
             this.toolStripSalir.Location = new System.Drawing.Point(0, 0);
             this.toolStripSalir.Name = "toolStripSalir";
             this.toolStripSalir.Size = new System.Drawing.Size(971, 25);
@@ -709,6 +713,17 @@
             this.lblCantidad.Size = new System.Drawing.Size(13, 15);
             this.lblCantidad.Text = "c";
             // 
+            // lblDataUser
+            // 
+            this.lblDataUser.Name = "lblDataUser";
+            this.lblDataUser.Size = new System.Drawing.Size(67, 22);
+            this.lblDataUser.Text = "lblDataUser";
+            // 
+            // toolStripSeparator12
+            // 
+            this.toolStripSeparator12.Name = "toolStripSeparator12";
+            this.toolStripSeparator12.Size = new System.Drawing.Size(6, 25);
+            // 
             // Ordenes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -802,5 +817,7 @@
         private System.Windows.Forms.CheckBox chbTodos;
         private System.Windows.Forms.ToolStripButton btnEliminar;
         private System.Windows.Forms.ToolStripSeparator tssEliminar;
+        private System.Windows.Forms.ToolStripLabel lblDataUser;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
     }
 }

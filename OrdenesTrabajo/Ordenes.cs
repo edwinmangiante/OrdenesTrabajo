@@ -30,6 +30,14 @@ namespace OrdenesTrabajo
 
         private void Inicializar()
         {
+            if (Controller.Usuario != null)
+                lblDataUser.Text = Controller.Usuario.ToString();
+            else
+            {
+                Controller.MensajeError("No se encontró usuario logueado en la aplicación. " +
+                    "Por favor, cierre la aplicación y vuelva a ingresar.");
+                this.Close();
+            }
             btnLimpiar.PerformClick();
             //inicializar combos!
 

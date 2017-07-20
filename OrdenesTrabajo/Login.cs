@@ -20,27 +20,24 @@ namespace OrdenesTrabajo
 
         private void Login_Load(object sender, EventArgs e)
         {
-            if(!string.IsNullOrWhiteSpace(Environment.UserDomainName) && !string.IsNullOrWhiteSpace(Environment.UserName))
-                txtUsuario.Text = Environment.UserDomainName + @"\" + Environment.UserName;
+            if (!string.IsNullOrWhiteSpace(Environment.UserDomainName))
+                txtDominio.Text = Environment.UserDomainName;
+            if (!string.IsNullOrWhiteSpace(Environment.UserName))
+                txtUsuario.Text = Environment.UserName;
         }
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            if(Valida())
+            if (Valida())
             {
-                string user = txtUsuario.Text.Split('\\')[1];
-                string dominio = txtUsuario.Text.Split('\\')[0];
-                string contraseña = txtContraseña.Text;
-                Controller.ObtenerUsuario(user, dominio, contraseña);
+                Controller.ObtenerUsuario(txtUsuario.Text, txtDominio.Text, EncryptPass(txtContraseña.Text));
                 if (Controller.Usuario != null)
                 {
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
                 else
-                {
                     Controller.MensajeError("El DOMINIO, usuario o contraseña son erroneos. Por favor, verifique.");
-                }
             }
         }
 
@@ -52,9 +49,15 @@ namespace OrdenesTrabajo
 
         private bool Valida()
         {
-            if(string.IsNullOrWhiteSpace(txtUsuario.Text))
+            if (string.IsNullOrWhiteSpace(txtDominio.Text))
             {
-                Controller.MensajeError("Debe completar DOMINIO y usuario.");
+                Controller.MensajeError("No ingreso a la PC con un usuario de dominio.");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtUsuario.Text))
+            {
+                Controller.MensajeError("Debe completar el usuario.");
                 return false;
             }
 
@@ -65,6 +68,12 @@ namespace OrdenesTrabajo
             }
 
             return true;
+        }
+
+        public static string EncryptPass(string password)
+        {
+            var passwordEncode = Encoding.UTF8.GetBytes(password);
+            return Convert.ToBase64String(passwordEncode);
         }
     }
 }

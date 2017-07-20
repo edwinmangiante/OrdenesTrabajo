@@ -28,11 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Ordenes");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Pedidos");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Opciones", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Opciones");
             this.treeViewOpciones = new System.Windows.Forms.TreeView();
             this.SuspendLayout();
             // 
@@ -41,19 +37,15 @@
             this.treeViewOpciones.Dock = System.Windows.Forms.DockStyle.Left;
             this.treeViewOpciones.Location = new System.Drawing.Point(0, 0);
             this.treeViewOpciones.Name = "treeViewOpciones";
-            treeNode1.Name = "NodeOrd";
-            treeNode1.Text = "Ordenes";
-            treeNode2.Name = "NodePed";
-            treeNode2.Text = "Pedidos";
-            treeNode3.Name = "NodOpc";
-            treeNode3.Text = "Opciones";
+            treeNode1.Name = "Opciones";
+            treeNode1.Text = "Opciones";
             this.treeViewOpciones.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode3});
-            this.treeViewOpciones.Size = new System.Drawing.Size(156, 407);
-            this.treeViewOpciones.TabIndex = 1;
+            treeNode1});
+            this.treeViewOpciones.Size = new System.Drawing.Size(121, 407);
+            this.treeViewOpciones.TabIndex = 4;
             this.treeViewOpciones.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewOpciones_NodeMouseClick);
             // 
-            // ContenedorFrm
+            // Contenedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -61,7 +53,7 @@
             this.Controls.Add(this.treeViewOpciones);
             this.IsMdiContainer = true;
             this.MaximizeBox = false;
-            this.Name = "ContenedorFrm";
+            this.Name = "Contenedor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ordenes";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -71,7 +63,6 @@
         }
 
         #endregion
-
         private System.Windows.Forms.TreeView treeViewOpciones;
     }
 }

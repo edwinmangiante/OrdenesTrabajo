@@ -29,12 +29,12 @@ namespace DAL.Login
 
         #region Métodos 
 
-        public static Perfil ObtenerPerfilPorUsuario(Usuario usuario)
+        public static Perfil ObtenerPerfilPorUsuario(Usuario usuario, string appName)
         {
             try
             {
                 SqlConnection connection = null;
-                return ObtenerPerfilPorUsuario(usuario, connection);
+                return ObtenerPerfilPorUsuario(usuario, appName, connection);
             }
             catch (Exception ex)
             {
@@ -42,12 +42,12 @@ namespace DAL.Login
             }
         }
 
-        private static Perfil ObtenerPerfilPorUsuario(Usuario usuario, SqlConnection connection)
+        private static Perfil ObtenerPerfilPorUsuario(Usuario usuario, string appName, SqlConnection connection)
         {
             connection = Connection.Conectar("login");
             if (connection != null)
             {
-                if (connection.State == ConnectionState.Closed)
+                if (connection.State != ConnectionState.Open)
                     connection.Open();
 
                 Perfil perfil = null;
@@ -63,7 +63,7 @@ namespace DAL.Login
                             perfil = new Perfil();
                             perfil.Codigo = Convert.ToInt32(reader["per_codigo"]);
                             perfil.Descripcion = reader["per_descripcion"].ToString();
-                            perfil.Opciones = Opcion.ObtenerPorPerfil(perfil.Codigo);
+                            perfil.Opciones = Opcion.ObtenerPorPerfil(perfil.Codigo, appName);
                         }
                     }
                 }
