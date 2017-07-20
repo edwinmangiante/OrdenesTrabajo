@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Opciones");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Opciones");
             this.treeViewOpciones = new System.Windows.Forms.TreeView();
             this.SuspendLayout();
             // 
@@ -37,10 +37,10 @@
             this.treeViewOpciones.Dock = System.Windows.Forms.DockStyle.Left;
             this.treeViewOpciones.Location = new System.Drawing.Point(0, 0);
             this.treeViewOpciones.Name = "treeViewOpciones";
-            treeNode1.Name = "Opciones";
-            treeNode1.Text = "Opciones";
+            treeNode2.Name = "Opciones";
+            treeNode2.Text = "Opciones";
             this.treeViewOpciones.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1});
+            treeNode2});
             this.treeViewOpciones.Size = new System.Drawing.Size(121, 407);
             this.treeViewOpciones.TabIndex = 4;
             this.treeViewOpciones.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewOpciones_NodeMouseClick);
@@ -57,6 +57,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ordenes";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Contenedor_FormClosing);
             this.Load += new System.EventHandler(this.ContenedorFrm_Load);
             this.ResumeLayout(false);
 

@@ -55,7 +55,7 @@ namespace OrdenesTrabajo
 
         private void treeViewOpciones_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            //CloseOpenForms();
+            CloseOpenForms();
 
             try
             {
@@ -83,10 +83,15 @@ namespace OrdenesTrabajo
             FormCollection fc = Application.OpenForms;
             Form form = null;
             foreach (Form item in fc)
-                if (item.Name != "ContenedorFrm")
+                if (item.Name != "Contenedor")
                     form = item;
             if (form != null)
                 form.Close();
+        }
+
+        private void Contenedor_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
