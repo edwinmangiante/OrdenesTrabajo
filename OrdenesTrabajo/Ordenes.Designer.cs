@@ -31,14 +31,18 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ordenes));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStripSalir = new System.Windows.Forms.ToolStrip();
             this.btnSalir = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.lblDataUser = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
             this.groupBoxFiltros = new System.Windows.Forms.GroupBox();
             this.chbTodos = new System.Windows.Forms.CheckBox();
             this.chbIncluirBajas = new System.Windows.Forms.CheckBox();
@@ -61,18 +65,6 @@
             this.groupBoxGrilla = new System.Windows.Forms.GroupBox();
             this.panelGrilla = new System.Windows.Forms.Panel();
             this.dataGridViewOrdenes = new System.Windows.Forms.DataGridView();
-            this.codigoInternoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codigoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.observacionesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.direccionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.solicitanteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaLGDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaCierreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaAltaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaBajaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindingSourceOrdenes = new System.Windows.Forms.BindingSource(this.components);
             this.toolStripGrilla = new System.Windows.Forms.ToolStrip();
             this.btnLimpiar = new System.Windows.Forms.ToolStripButton();
@@ -98,8 +90,15 @@
             this.btnExportar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.lblCantidad = new System.Windows.Forms.ToolStripLabel();
-            this.lblDataUser = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaLG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaCierre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaAlta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaBaja = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStripSalir.SuspendLayout();
             this.groupBoxFiltros.SuspendLayout();
             this.groupBoxGrilla.SuspendLayout();
@@ -138,6 +137,17 @@
             this.toolStripSeparator1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // lblDataUser
+            // 
+            this.lblDataUser.Name = "lblDataUser";
+            this.lblDataUser.Size = new System.Drawing.Size(67, 22);
+            this.lblDataUser.Text = "lblDataUser";
+            // 
+            // toolStripSeparator12
+            // 
+            this.toolStripSeparator12.Name = "toolStripSeparator12";
+            this.toolStripSeparator12.Size = new System.Drawing.Size(6, 25);
             // 
             // groupBoxFiltros
             // 
@@ -360,145 +370,44 @@
             this.dataGridViewOrdenes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewOrdenes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewOrdenes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.codigoInternoDataGridViewTextBoxColumn,
-            this.codigoDataGridViewTextBoxColumn,
-            this.descripcionDataGridViewTextBoxColumn,
-            this.observacionesDataGridViewTextBoxColumn,
-            this.direccionDataGridViewTextBoxColumn,
-            this.solicitanteDataGridViewTextBoxColumn,
-            this.tipoDataGridViewTextBoxColumn,
-            this.fechaLGDataGridViewTextBoxColumn,
-            this.fechaCierreDataGridViewTextBoxColumn,
-            this.usuarioDataGridViewTextBoxColumn,
-            this.fechaAltaDataGridViewTextBoxColumn,
-            this.fechaBajaDataGridViewTextBoxColumn});
+            this.Codigo,
+            this.Descripcion,
+            this.Direccion,
+            this.Tipo,
+            this.Usuario,
+            this.FechaLG,
+            this.FechaCierre,
+            this.FechaAlta,
+            this.FechaBaja});
             this.dataGridViewOrdenes.DataSource = this.bindingSourceOrdenes;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewOrdenes.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewOrdenes.DefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridViewOrdenes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewOrdenes.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewOrdenes.MultiSelect = false;
             this.dataGridViewOrdenes.Name = "dataGridViewOrdenes";
             this.dataGridViewOrdenes.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewOrdenes.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewOrdenes.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewOrdenes.RowHeadersVisible = false;
             this.dataGridViewOrdenes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewOrdenes.Size = new System.Drawing.Size(965, 240);
             this.dataGridViewOrdenes.TabIndex = 1;
             // 
-            // codigoInternoDataGridViewTextBoxColumn
-            // 
-            this.codigoInternoDataGridViewTextBoxColumn.DataPropertyName = "CodigoInterno";
-            this.codigoInternoDataGridViewTextBoxColumn.HeaderText = "CodigoInterno";
-            this.codigoInternoDataGridViewTextBoxColumn.Name = "codigoInternoDataGridViewTextBoxColumn";
-            this.codigoInternoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.codigoInternoDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // codigoDataGridViewTextBoxColumn
-            // 
-            this.codigoDataGridViewTextBoxColumn.DataPropertyName = "Codigo";
-            this.codigoDataGridViewTextBoxColumn.HeaderText = "Código";
-            this.codigoDataGridViewTextBoxColumn.Name = "codigoDataGridViewTextBoxColumn";
-            this.codigoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // descripcionDataGridViewTextBoxColumn
-            // 
-            this.descripcionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.descripcionDataGridViewTextBoxColumn.DataPropertyName = "Descripcion";
-            this.descripcionDataGridViewTextBoxColumn.HeaderText = "Descripción";
-            this.descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
-            this.descripcionDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // observacionesDataGridViewTextBoxColumn
-            // 
-            this.observacionesDataGridViewTextBoxColumn.DataPropertyName = "Observaciones";
-            this.observacionesDataGridViewTextBoxColumn.HeaderText = "Observaciones";
-            this.observacionesDataGridViewTextBoxColumn.Name = "observacionesDataGridViewTextBoxColumn";
-            this.observacionesDataGridViewTextBoxColumn.ReadOnly = true;
-            this.observacionesDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // direccionDataGridViewTextBoxColumn
-            // 
-            this.direccionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.direccionDataGridViewTextBoxColumn.DataPropertyName = "Direccion";
-            this.direccionDataGridViewTextBoxColumn.HeaderText = "Dirección";
-            this.direccionDataGridViewTextBoxColumn.Name = "direccionDataGridViewTextBoxColumn";
-            this.direccionDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // solicitanteDataGridViewTextBoxColumn
-            // 
-            this.solicitanteDataGridViewTextBoxColumn.DataPropertyName = "Solicitante";
-            this.solicitanteDataGridViewTextBoxColumn.HeaderText = "Solicitante";
-            this.solicitanteDataGridViewTextBoxColumn.Name = "solicitanteDataGridViewTextBoxColumn";
-            this.solicitanteDataGridViewTextBoxColumn.ReadOnly = true;
-            this.solicitanteDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // tipoDataGridViewTextBoxColumn
-            // 
-            this.tipoDataGridViewTextBoxColumn.DataPropertyName = "Tipo";
-            this.tipoDataGridViewTextBoxColumn.HeaderText = "Tipo";
-            this.tipoDataGridViewTextBoxColumn.Name = "tipoDataGridViewTextBoxColumn";
-            this.tipoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fechaLGDataGridViewTextBoxColumn
-            // 
-            this.fechaLGDataGridViewTextBoxColumn.DataPropertyName = "FechaLG";
-            this.fechaLGDataGridViewTextBoxColumn.HeaderText = "FechaLG";
-            this.fechaLGDataGridViewTextBoxColumn.Name = "fechaLGDataGridViewTextBoxColumn";
-            this.fechaLGDataGridViewTextBoxColumn.ReadOnly = true;
-            this.fechaLGDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // fechaCierreDataGridViewTextBoxColumn
-            // 
-            this.fechaCierreDataGridViewTextBoxColumn.DataPropertyName = "FechaCierre";
-            dataGridViewCellStyle2.Format = "dd/MM/yyyy";
-            this.fechaCierreDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.fechaCierreDataGridViewTextBoxColumn.HeaderText = "Cierre";
-            this.fechaCierreDataGridViewTextBoxColumn.Name = "fechaCierreDataGridViewTextBoxColumn";
-            this.fechaCierreDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // usuarioDataGridViewTextBoxColumn
-            // 
-            this.usuarioDataGridViewTextBoxColumn.DataPropertyName = "Usuario";
-            this.usuarioDataGridViewTextBoxColumn.HeaderText = "Usuario";
-            this.usuarioDataGridViewTextBoxColumn.Name = "usuarioDataGridViewTextBoxColumn";
-            this.usuarioDataGridViewTextBoxColumn.ReadOnly = true;
-            this.usuarioDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // fechaAltaDataGridViewTextBoxColumn
-            // 
-            this.fechaAltaDataGridViewTextBoxColumn.DataPropertyName = "FechaAlta";
-            dataGridViewCellStyle3.Format = "dd/MM/yyyy";
-            this.fechaAltaDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            this.fechaAltaDataGridViewTextBoxColumn.HeaderText = "Alta";
-            this.fechaAltaDataGridViewTextBoxColumn.Name = "fechaAltaDataGridViewTextBoxColumn";
-            this.fechaAltaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fechaBajaDataGridViewTextBoxColumn
-            // 
-            this.fechaBajaDataGridViewTextBoxColumn.DataPropertyName = "FechaBaja";
-            dataGridViewCellStyle4.Format = "dd/MM/yyyy";
-            this.fechaBajaDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
-            this.fechaBajaDataGridViewTextBoxColumn.HeaderText = "Baja";
-            this.fechaBajaDataGridViewTextBoxColumn.Name = "fechaBajaDataGridViewTextBoxColumn";
-            this.fechaBajaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // bindingSourceOrdenes
             // 
-            this.bindingSourceOrdenes.DataSource = typeof(DAL.OrdenTrabajo);
             this.bindingSourceOrdenes.CurrentChanged += new System.EventHandler(this.bindingSourceOrdenes_CurrentChanged);
             // 
             // toolStripGrilla
@@ -713,16 +622,84 @@
             this.lblCantidad.Size = new System.Drawing.Size(13, 15);
             this.lblCantidad.Text = "c";
             // 
-            // lblDataUser
+            // Codigo
             // 
-            this.lblDataUser.Name = "lblDataUser";
-            this.lblDataUser.Size = new System.Drawing.Size(67, 22);
-            this.lblDataUser.Text = "lblDataUser";
+            this.Codigo.DataPropertyName = "Codigo";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Codigo.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Codigo.HeaderText = "Nro Orden";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
             // 
-            // toolStripSeparator12
+            // Descripcion
             // 
-            this.toolStripSeparator12.Name = "toolStripSeparator12";
-            this.toolStripSeparator12.Size = new System.Drawing.Size(6, 25);
+            this.Descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Descripcion.DataPropertyName = "Descripcion";
+            this.Descripcion.HeaderText = "Descripción";
+            this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
+            // 
+            // Direccion
+            // 
+            this.Direccion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Direccion.DataPropertyName = "Direccion";
+            this.Direccion.HeaderText = "Dirección";
+            this.Direccion.Name = "Direccion";
+            this.Direccion.ReadOnly = true;
+            // 
+            // Tipo
+            // 
+            this.Tipo.DataPropertyName = "Tipo";
+            this.Tipo.HeaderText = "Tipo";
+            this.Tipo.Name = "Tipo";
+            this.Tipo.ReadOnly = true;
+            // 
+            // Usuario
+            // 
+            this.Usuario.DataPropertyName = "Usuario";
+            this.Usuario.HeaderText = "Usuario";
+            this.Usuario.Name = "Usuario";
+            this.Usuario.ReadOnly = true;
+            // 
+            // FechaLG
+            // 
+            this.FechaLG.DataPropertyName = "FechaLG";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Format = "dd/MM/yyyy";
+            this.FechaLG.DefaultCellStyle = dataGridViewCellStyle3;
+            this.FechaLG.HeaderText = "Fecha LG";
+            this.FechaLG.Name = "FechaLG";
+            this.FechaLG.ReadOnly = true;
+            // 
+            // FechaCierre
+            // 
+            this.FechaCierre.DataPropertyName = "FechaCierre";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Format = "dd/MM/yyyy";
+            this.FechaCierre.DefaultCellStyle = dataGridViewCellStyle4;
+            this.FechaCierre.HeaderText = "Fecha Cierre";
+            this.FechaCierre.Name = "FechaCierre";
+            this.FechaCierre.ReadOnly = true;
+            // 
+            // FechaAlta
+            // 
+            this.FechaAlta.DataPropertyName = "FechaAlta";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Format = "dd/MM/yyyy";
+            this.FechaAlta.DefaultCellStyle = dataGridViewCellStyle5;
+            this.FechaAlta.HeaderText = "Fecha Alta";
+            this.FechaAlta.Name = "FechaAlta";
+            this.FechaAlta.ReadOnly = true;
+            // 
+            // FechaBaja
+            // 
+            this.FechaBaja.DataPropertyName = "FechaBaja";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Format = "dd/MM/yyyy";
+            this.FechaBaja.DefaultCellStyle = dataGridViewCellStyle6;
+            this.FechaBaja.HeaderText = "Fecha Baja";
+            this.FechaBaja.Name = "FechaBaja";
+            this.FechaBaja.ReadOnly = true;
             // 
             // Ordenes
             // 
@@ -801,23 +778,20 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
         private System.Windows.Forms.ToolStripButton btnCierre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codigoInternoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codigoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descripcionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn observacionesDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn direccionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn solicitanteDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tipoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaLGDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaCierreDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn usuarioDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaAltaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaBajaDataGridViewTextBoxColumn;
         private System.Windows.Forms.CheckBox chbIncluirBajas;
         private System.Windows.Forms.CheckBox chbTodos;
         private System.Windows.Forms.ToolStripButton btnEliminar;
         private System.Windows.Forms.ToolStripSeparator tssEliminar;
         private System.Windows.Forms.ToolStripLabel lblDataUser;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Direccion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Usuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaLG;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaCierre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaAlta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaBaja;
     }
 }

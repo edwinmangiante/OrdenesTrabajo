@@ -15,3 +15,200 @@ Error Number:201,State:4,Class:16
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Fecha: 26/07/2017 14:29:55
+User: dedwin			Machine Name: RPUESTO02			Ip Address: fe80::6c64:f6e6:ebe9:1b7d%14
+Método: ObtenerTodos			UserLog en App: 			Tipo de Error: System.InvalidOperationException
+Mensaje Excepción: 
+No se ha inicializado la propiedad ConnectionString.
+Excepción: 
+System.InvalidOperationException: No se ha inicializado la propiedad ConnectionString.
+   en System.Data.SqlClient.SqlConnection.PermissionDemand()
+   en System.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   en System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   en System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   en System.Data.SqlClient.SqlConnection.Open()
+   en DAL.OrdenTrabajo.ObtenerTodos(ParametrosBusquedaOrdenes parametros, SqlConnection connection) en D:\Dedwin\Proyectos\OrdenesTrabajo\DAL\OrdenTrabajo.cs:línea 249
+   en DAL.OrdenTrabajo.ObtenerTodos(ParametrosBusquedaOrdenes parametros) en D:\Dedwin\Proyectos\OrdenesTrabajo\DAL\OrdenTrabajo.cs:línea 83
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Fecha: 26/07/2017 14:53:25
+User: dedwin			Machine Name: RPUESTO02			Ip Address: fe80::6c64:f6e6:ebe9:1b7d%14
+Método: ObtenerPorParametros			UserLog en App: 			Tipo de Error: System.Data.SqlClient.SqlException
+Mensaje Excepción: 
+The name '
+	SELECT usu.*
+	  FROM Login.dbo.usuario usu
+	 INNER JOIN Login.dbo.perfil per
+			 ON per.per_codigo = usu.usu_per_codigo
+	 INNER JOIN Login.dbo.opciones opc
+			 ON opc.opc_per_codigo = per.per_codigo 
+	 WHERE 1 = 1 ' is not a valid identifier.
+Excepción: 
+System.Data.SqlClient.SqlException (0x80131904): The name '
+	SELECT usu.*
+	  FROM Login.dbo.usuario usu
+	 INNER JOIN Login.dbo.perfil per
+			 ON per.per_codigo = usu.usu_per_codigo
+	 INNER JOIN Login.dbo.opciones opc
+			 ON opc.opc_per_codigo = per.per_codigo 
+	 WHERE 1 = 1 ' is not a valid identifier.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader()
+   en DAL.Login.Usuario.ObtenerPorParametros(ParametrosBusquedaUsuarios parametros, SqlConnection connection) en D:\Dedwin\Proyectos\OrdenesTrabajo\DAL\Login\Usuario.cs:línea 205
+   en DAL.Login.Usuario.ObtenerPorParametros(ParametrosBusquedaUsuarios parametros) en D:\Dedwin\Proyectos\OrdenesTrabajo\DAL\Login\Usuario.cs:línea 144
+ClientConnectionId:cf9094f6-5eeb-4a39-b85a-df315d22c112
+Error Number:203,State:2,Class:16
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Fecha: 26/07/2017 14:58:08
+User: dedwin			Machine Name: RPUESTO02			Ip Address: fe80::6c64:f6e6:ebe9:1b7d%14
+Método: ObtenerPorParametros			UserLog en App: 			Tipo de Error: System.Data.SqlClient.SqlException
+Mensaje Excepción: 
+The name '
+	SELECT usu.*
+	  FROM Login.dbo.usuario usu
+	 INNER JOIN Login.dbo.perfil per
+			 ON per.per_codigo = usu.usu_per_codigo
+	  LEFT JOIN Login.dbo.opciones opc
+			 ON opc.opc_per_codigo = per.per_codigo 
+	 WHERE 1 = 1 ' is not a valid identifier.
+Excepción: 
+System.Data.SqlClient.SqlException (0x80131904): The name '
+	SELECT usu.*
+	  FROM Login.dbo.usuario usu
+	 INNER JOIN Login.dbo.perfil per
+			 ON per.per_codigo = usu.usu_per_codigo
+	  LEFT JOIN Login.dbo.opciones opc
+			 ON opc.opc_per_codigo = per.per_codigo 
+	 WHERE 1 = 1 ' is not a valid identifier.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader()
+   en DAL.Login.Usuario.ObtenerPorParametros(ParametrosBusquedaUsuarios parametros, SqlConnection connection) en D:\Dedwin\Proyectos\OrdenesTrabajo\DAL\Login\Usuario.cs:línea 205
+   en DAL.Login.Usuario.ObtenerPorParametros(ParametrosBusquedaUsuarios parametros) en D:\Dedwin\Proyectos\OrdenesTrabajo\DAL\Login\Usuario.cs:línea 144
+ClientConnectionId:76928fc4-f8d1-40c1-9fce-5132a8065418
+Error Number:203,State:2,Class:16
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Fecha: 26/07/2017 14:59:47
+User: dedwin			Machine Name: RPUESTO02			Ip Address: fe80::6c64:f6e6:ebe9:1b7d%14
+Método: ObtenerPorParametros			UserLog en App: 			Tipo de Error: System.Data.SqlClient.SqlException
+Mensaje Excepción: 
+The name '
+	SELECT usu.*
+	  FROM Login.dbo.usuario usu
+	 INNER JOIN Login.dbo.perfil per
+			 ON per.per_codigo = usu.usu_per_codigo
+	  LEFT JOIN Login.dbo.opciones opc
+			 ON opc.opc_per_codigo = per.per_codigo 
+	 WHERE 1 = 1 ' is not a valid identifier.
+Excepción: 
+System.Data.SqlClient.SqlException (0x80131904): The name '
+	SELECT usu.*
+	  FROM Login.dbo.usuario usu
+	 INNER JOIN Login.dbo.perfil per
+			 ON per.per_codigo = usu.usu_per_codigo
+	  LEFT JOIN Login.dbo.opciones opc
+			 ON opc.opc_per_codigo = per.per_codigo 
+	 WHERE 1 = 1 ' is not a valid identifier.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader()
+   en DAL.Login.Usuario.ObtenerPorParametros(ParametrosBusquedaUsuarios parametros, SqlConnection connection) en D:\Dedwin\Proyectos\OrdenesTrabajo\DAL\Login\Usuario.cs:línea 205
+   en DAL.Login.Usuario.ObtenerPorParametros(ParametrosBusquedaUsuarios parametros) en D:\Dedwin\Proyectos\OrdenesTrabajo\DAL\Login\Usuario.cs:línea 144
+ClientConnectionId:cf9094f6-5eeb-4a39-b85a-df315d22c112
+Error Number:203,State:2,Class:16
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Fecha: 26/07/2017 15:07:48
+User: dedwin			Machine Name: RPUESTO02			Ip Address: fe80::6c64:f6e6:ebe9:1b7d%14
+Método: ObtenerPorParametros			UserLog en App: 			Tipo de Error: System.Data.SqlClient.SqlException
+Mensaje Excepción: 
+Incorrect syntax near the keyword 'GROUP'.
+Excepción: 
+System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'GROUP'.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader()
+   en DAL.Login.Usuario.ObtenerPorParametros(ParametrosBusquedaUsuarios parametros, SqlConnection connection) en D:\Dedwin\Proyectos\OrdenesTrabajo\DAL\Login\Usuario.cs:línea 205
+   en DAL.Login.Usuario.ObtenerPorParametros(ParametrosBusquedaUsuarios parametros) en D:\Dedwin\Proyectos\OrdenesTrabajo\DAL\Login\Usuario.cs:línea 144
+ClientConnectionId:43503577-1a0f-47f6-9e1f-a147c3f89a8f
+Error Number:156,State:1,Class:15
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Fecha: 26/07/2017 15:11:47
+User: dedwin			Machine Name: RPUESTO02			Ip Address: fe80::6c64:f6e6:ebe9:1b7d%14
+Método: ObtenerPorParametros			UserLog en App: 			Tipo de Error: System.Data.SqlClient.SqlException
+Mensaje Excepción: 
+Invalid column name 'dedwin'.
+Excepción: 
+System.Data.SqlClient.SqlException (0x80131904): Invalid column name 'dedwin'.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader()
+   en DAL.Login.Usuario.ObtenerPorParametros(ParametrosBusquedaUsuarios parametros, SqlConnection connection) en D:\Dedwin\Proyectos\OrdenesTrabajo\DAL\Login\Usuario.cs:línea 205
+   en DAL.Login.Usuario.ObtenerPorParametros(ParametrosBusquedaUsuarios parametros) en D:\Dedwin\Proyectos\OrdenesTrabajo\DAL\Login\Usuario.cs:línea 144
+ClientConnectionId:0365398a-03a4-478e-b71e-e6a986e4a708
+Error Number:207,State:1,Class:16
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+

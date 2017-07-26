@@ -22,9 +22,8 @@ namespace OrdenesTrabajo
         public Usuarios()
         {
             InitializeComponent();
-            bindingSourceUsuarios.DataSource = new ColeccionUsuarios();
-            Inicializar();
-        }
+            //bindingSourceUsuarios.DataSource = new ColeccionUsuarios();
+            Inicializar();        }
 
         private void Inicializar()
         {

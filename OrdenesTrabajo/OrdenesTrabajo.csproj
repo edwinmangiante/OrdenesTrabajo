@@ -132,8 +132,6 @@
       <DependentUpon>Usuarios.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\DAL.Login.Usuario.datasource" />
-    <None Include="Properties\DataSources\DAL.OrdenTrabajo.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -166,6 +164,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\DataSources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
