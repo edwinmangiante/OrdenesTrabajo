@@ -23,27 +23,34 @@ namespace OrdenesTrabajo
         {
             this.IsMdiContainer = true;
 
-            if (Controller.Usuario != null)
+            try
             {
-                //lblDataUser.Text = Controller.Usuario.ToString();
-                if (Controller.Usuario.PerfilUsuario != null)
+                if (Controller.Usuario != null)
                 {
-                    if (Controller.Usuario.PerfilUsuario.Opciones != null && Controller.Usuario.PerfilUsuario.Opciones.Count > 0)
+                    if (Controller.Usuario.PerfilUsuario != null)
                     {
-                        FillTreeView();
-            treeViewOpciones.ExpandAll();
+                        if (Controller.Usuario.PerfilUsuario.Opciones != null && Controller.Usuario.PerfilUsuario.Opciones.Count > 0)
+                        {
+                            FillTreeView();
+                            treeViewOpciones.ExpandAll();
+                        }
+                        else
+                            Controller.MensajeError("No se encontraron las opciones del perfil del usuario logueado en la aplicación. " +
+                                "Por favor, cierre la aplicación y vuelva a ingresar.");
                     }
                     else
-                        Controller.MensajeError("No se encontraron las opciones del perfil del usuario logueado en la aplicación. " +
+                        Controller.MensajeError("No se encontró el perfil del usuario logueado en la aplicación. " +
                             "Por favor, cierre la aplicación y vuelva a ingresar.");
                 }
                 else
-                    Controller.MensajeError("No se encontró el perfil del usuario logueado en la aplicación. " +
+                    Controller.MensajeError("No se encontró usuario logueado en la aplicación. " +
                         "Por favor, cierre la aplicación y vuelva a ingresar.");
             }
-            else
-                Controller.MensajeError("No se encontró usuario logueado en la aplicación. " +
-                    "Por favor, cierre la aplicación y vuelva a ingresar.");
+            catch (Exception ex)
+            {
+                Controller.MensajeError("Ocurrió un error inesperado en la aplicación. " +
+                        "Por favor, vuelva a intentar y si el error persiste comuniquese con sistemas. (" + ex.Message + ")");
+            }
         }
 
         private void FillTreeView()
@@ -59,22 +66,24 @@ namespace OrdenesTrabajo
 
             try
             {
+                Form form = null;
                 if (e.Node.Text == "Ordenes")
-                {
-                    Ordenes ord = new Ordenes();
-                    ord.MdiParent = this;
-                    ord.Dock = DockStyle.Fill;
-                    ord.FormBorderStyle = FormBorderStyle.None;
-                    ord.Show();
-                }
-                else if (e.Node.Text == "Pedidos")
-                {
-
-                }
+                    form = new Ordenes();
+                /*else if (e.Node.Text == "Pedidos")
+                    form = new Pedidos();*/
+                else if (e.Node.Text == "Usuarios")
+                    form = new Usuarios();
+                /*else if (e.Node.Text == "Logs")
+                    form = new Logs();*/
+                form.MdiParent = this;
+                form.Dock = DockStyle.Fill;
+                form.FormBorderStyle = FormBorderStyle.None;
+                form.Show();
             }
             catch (Exception ex)
             {
-
+                Controller.MensajeError("Ocurrió un error inesperado al intentar abrir la ventana. " +
+                        "Por favor, vuelva a intentar y si el error persiste comuniquese con sistemas. (" + ex.Message + ")");
             }
         }
 
@@ -83,7 +92,7 @@ namespace OrdenesTrabajo
             FormCollection fc = Application.OpenForms;
             Form form = null;
             foreach (Form item in fc)
-                if (item.Name != "Contenedor")
+                if (!item.IsMdiContainer)
                     form = item;
             if (form != null)
                 form.Close();

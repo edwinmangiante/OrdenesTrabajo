@@ -19,7 +19,7 @@ namespace OrdenesTrabajo
     public partial class Ordenes : Form
     {
         private bool btnSalirClicked = false;
-        private OrdenesTrab ordenesTrabajo = new OrdenesTrab();
+        private ColeccionOrdenesTrabajo ordenesTrabajo = new ColeccionOrdenesTrabajo();
 
         public Ordenes()
         {

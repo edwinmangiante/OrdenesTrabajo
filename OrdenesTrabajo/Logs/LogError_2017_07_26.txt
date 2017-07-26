@@ -1,0 +1,17 @@
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Fecha: 26/07/2017 12:38:51
+User: dedwin			Machine Name: RPUESTO02			Ip Address: fe80::6c64:f6e6:ebe9:1b7d%14
+Método: ObtenerPorParametros			UserLog en App: 			Tipo de Error: System.Data.SqlClient.SqlException
+Mensaje Excepción: 
+Procedure or function 'ObtieneOpciones' expects parameter '@opc_aplicacion', which was not supplied.
+Excepción: 
+System.Data.SqlClient.SqlException (0x80131904): Procedure or function 'ObtieneOpciones' expects parameter '@opc_aplicacion', which was not supplied.
+   en DAL.Login.Perfil.ObtenerPerfilPorUsuario(Usuario usuario, String appName) en D:\Dedwin\Proyectos\OrdenesTrabajo\DAL\Login\Perfil.cs:línea 41
+   en DAL.Login.Usuario..ctor(SqlDataReader reader, String appName) en D:\Dedwin\Proyectos\OrdenesTrabajo\DAL\Login\Usuario.cs:línea 49
+   en DAL.Login.Usuario.ObtenerPorParametros(ParametrosBusquedaUsuarios parametros, SqlConnection connection) en D:\Dedwin\Proyectos\OrdenesTrabajo\DAL\Login\Usuario.cs:línea 211
+   en DAL.Login.Usuario.ObtenerPorParametros(ParametrosBusquedaUsuarios parametros) en D:\Dedwin\Proyectos\OrdenesTrabajo\DAL\Login\Usuario.cs:línea 144
+ClientConnectionId:888fd599-4fdb-4d1e-b1bc-deb9ad95fff8
+Error Number:201,State:4,Class:16
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+

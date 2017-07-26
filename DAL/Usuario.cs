@@ -9,7 +9,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL.Login
+namespace DAL
 {
     public class Usuario
     {
@@ -136,7 +136,7 @@ namespace DAL.Login
             }
         }
 
-        public static List<Usuario> ObtenerPorParametros(ParametrosBusquedaUsuarios parametros)
+        public static Usuario[] ObtenerPorParametros(ParametrosBusquedaUsuarios parametros)
         {
             try
             {
@@ -188,7 +188,7 @@ namespace DAL.Login
                 throw new Exception("La conexión está vacía.");
         }
 
-        private static List<Usuario> ObtenerPorParametros(ParametrosBusquedaUsuarios parametros, SqlConnection connection)
+        private static Usuario[] ObtenerPorParametros(ParametrosBusquedaUsuarios parametros, SqlConnection connection)
         {
             connection = Connection.Conectar("login");
             if (connection != null)
@@ -219,7 +219,7 @@ namespace DAL.Login
 
                 connection.Dispose();
 
-                return usuarios;
+                return usuarios.ToArray();
             }
             else
                 throw new Exception("La conexión está vacía.");

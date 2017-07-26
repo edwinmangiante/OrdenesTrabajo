@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="cf6549ae-8092-4841-bc19-3236dbd3827a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:65518/OrdenesTrabajo.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="OrdenesTrabajo2.xsd" MetadataType="Schema" ID="8ac007fb-f622-4f13-ab09-58752ebb59fe" SourceId="1" SourceUrl="http://localhost:65518/OrdenesTrabajo.svc?xsd=xsd0" />
+    <MetadataFile FileName="OrdenesTrabajo.disco" MetadataType="Disco" ID="5d090991-03c3-44fc-b8ee-4e3548b91e5d" SourceId="1" SourceUrl="http://localhost:65518/OrdenesTrabajo.svc?disco" />
+    <MetadataFile FileName="OrdenesTrabajo1.xsd" MetadataType="Schema" ID="846d80b9-47f2-4bb8-9bc8-f3850b48819e" SourceId="1" SourceUrl="http://localhost:65518/OrdenesTrabajo.svc?xsd=xsd2" />
+    <MetadataFile FileName="OrdenesTrabajo3.xsd" MetadataType="Schema" ID="939d8e92-2768-4e0a-9f1c-190e4a0fd64f" SourceId="1" SourceUrl="http://localhost:65518/OrdenesTrabajo.svc?xsd=xsd3" />
+    <MetadataFile FileName="OrdenesTrabajo.xsd" MetadataType="Schema" ID="5f9ccec0-c990-4045-872e-e2edaaa3ebd2" SourceId="1" SourceUrl="http://localhost:65518/OrdenesTrabajo.svc?xsd=xsd1" />
+    <MetadataFile FileName="OrdenesTrabajo.wsdl" MetadataType="Wsdl" ID="5f911a23-14d5-4b6a-9745-89ed2b5abd62" SourceId="1" SourceUrl="http://localhost:65518/OrdenesTrabajo.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

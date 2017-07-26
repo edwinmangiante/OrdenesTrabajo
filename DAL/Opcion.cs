@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL.Login
+namespace DAL
 {
     public class Opcion
     {
@@ -64,7 +64,7 @@ namespace DAL.Login
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         opciones = new List<Opcion>();
-                        while(reader.Read())
+                        while (reader.Read())
                         {
                             Opcion opc = new Opcion();
                             opc.Codigo = Convert.ToInt32(reader["opc_codigo"]);

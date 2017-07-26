@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace OrdenesTrabajo.Colecciones
 {
-    public class OrdenesTrab : ColeccionEntidades<OrdenTrabajo>
+    public class ColeccionOrdenesTrabajo : ColeccionEntidades<OrdenTrabajo>
     {
         internal void ObtenerPorParametros(ParametrosBusquedaOrdenes parametros)
         {

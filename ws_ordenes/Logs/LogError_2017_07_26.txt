@@ -1,0 +1,57 @@
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Fecha: 26/07/2017 10:40:12
+User: dedwin			Machine Name: RPUESTO02			Ip Address: fe80::6c64:f6e6:ebe9:1b7d%14
+Método: ObtenerPorParametros			UserLog en App: 			Tipo de Error: System.Data.SqlClient.SqlException
+Mensaje Excepción: 
+Could not find stored procedure 'dbo.GetUsuarios'.
+Excepción: 
+System.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure 'dbo.GetUsuarios'.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader()
+   en DAL.Usuario.ObtenerPorParametros(ParametrosBusquedaUsuarios parametros, SqlConnection connection) en D:\Dedwin\Proyectos\OrdenesTrabajo\DAL\Usuario.cs:línea 205
+   en DAL.Usuario.ObtenerPorParametros(ParametrosBusquedaUsuarios parametros) en D:\Dedwin\Proyectos\OrdenesTrabajo\DAL\Usuario.cs:línea 144
+ClientConnectionId:f9345629-76d7-4f5d-9e3a-fb1d63d8dfe7
+Error Number:2812,State:62,Class:16
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Fecha: 26/07/2017 10:40:59
+User: dedwin			Machine Name: RPUESTO02			Ip Address: fe80::6c64:f6e6:ebe9:1b7d%14
+Método: ObtenerPorParametros			UserLog en App: 			Tipo de Error: System.NullReferenceException
+Mensaje Excepción: 
+Referencia a objeto no establecida como instancia de un objeto.
+Excepción: 
+System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en DAL.Usuario.ObtenerPorParametros(ParametrosBusquedaUsuarios parametros, SqlConnection connection) en D:\Dedwin\Proyectos\OrdenesTrabajo\DAL\Usuario.cs:línea 219
+   en DAL.Usuario.ObtenerPorParametros(ParametrosBusquedaUsuarios parametros) en D:\Dedwin\Proyectos\OrdenesTrabajo\DAL\Usuario.cs:línea 144
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Fecha: 26/07/2017 10:42:58
+User: dedwin			Machine Name: RPUESTO02			Ip Address: fe80::6c64:f6e6:ebe9:1b7d%14
+Método: ObtenerPorParametros			UserLog en App: 			Tipo de Error: System.Data.SqlClient.SqlException
+Mensaje Excepción: 
+Procedure or function 'ObtieneOpciones' expects parameter '@opc_aplicacion', which was not supplied.
+Excepción: 
+System.Data.SqlClient.SqlException (0x80131904): Procedure or function 'ObtieneOpciones' expects parameter '@opc_aplicacion', which was not supplied.
+   en DAL.Perfil.ObtenerPerfilPorUsuario(Usuario usuario, String appName) en D:\Dedwin\Proyectos\OrdenesTrabajo\DAL\Perfil.cs:línea 41
+   en DAL.Usuario..ctor(SqlDataReader reader, String appName) en D:\Dedwin\Proyectos\OrdenesTrabajo\DAL\Usuario.cs:línea 49
+   en DAL.Usuario.ObtenerPorParametros(ParametrosBusquedaUsuarios parametros, SqlConnection connection) en D:\Dedwin\Proyectos\OrdenesTrabajo\DAL\Usuario.cs:línea 211
+   en DAL.Usuario.ObtenerPorParametros(ParametrosBusquedaUsuarios parametros) en D:\Dedwin\Proyectos\OrdenesTrabajo\DAL\Usuario.cs:línea 144
+ClientConnectionId:4ca277ef-4a2b-4938-97ab-2c0e6d1be744
+Error Number:201,State:4,Class:16
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
