@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Login
 {
-    public class Usuario
+    public class Usuario : ICloneable
     {
         #region Propiedades
 
@@ -153,6 +153,23 @@ namespace DAL.Login
             }
         }
 
+        public static Usuario Crear(Usuario usuarioACrear)
+        {
+            try
+            {
+                using (SqlConnection connection = null)
+                    return Crear(usuarioACrear, connection);
+            }
+            catch (Exception ex)
+            {
+                //si hubiera ws ahí tendría que haber otro try catch y ahí loguear el error!
+                string hostName = Dns.GetHostName();
+                string ipAddress = Dns.GetHostEntry(hostName).AddressList[0].ToString();
+                LogError.CreateLog(ex, System.Reflection.MethodBase.GetCurrentMethod().Name, "", ipAddress);
+                throw ex;
+            }
+        }
+
         private static Usuario ObtenerPorPK(Usuario usu, SqlConnection connection)
         {
             connection = Connection.Conectar("login");
@@ -207,7 +224,6 @@ namespace DAL.Login
                         usuarios = new List<Usuario>();
                         while (reader.Read())
                         {
-                            //Usuario usu = null;
                             new Usuario(reader, parametros.NombreApp);
                             usuarios.Add(usuario);
                         }
@@ -223,6 +239,30 @@ namespace DAL.Login
             }
             else
                 throw new Exception("La conexión está vacía.");
+        }
+
+        private static Usuario Crear(Usuario usuarioACrear, SqlConnection connection)
+        {
+            Usuario usr = new Usuario();
+            connection = Connection.Conectar("login");
+            if (connection != null)
+            {
+                if (connection.State != ConnectionState.Open)
+                    connection.Open();
+
+                using (SqlCommand cmd = new SqlCommand("dbo.ABMUsuarios", connection))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    AddABMParameters(cmd, usuarioACrear);
+
+                    int a = cmd.ExecuteNonQuery();
+
+                    usr.Domain = usuarioACrear.Domain;
+                    usr.User = usuarioACrear.User;
+                }
+            }
+
+            return ObtenerPorPK(usr);
         }
 
         private static void AddSearchParameters(SqlCommand cmd, ParametrosBusquedaUsuarios parametros)
@@ -257,6 +297,40 @@ namespace DAL.Login
                 pa_incluir_bajas.Value = parametros.IncluirBajas.Value;
             else
                 pa_incluir_bajas.Value = DBNull.Value;
+        }
+
+        private static void AddABMParameters(SqlCommand cmd, Usuario usuario)
+        {
+            SqlParameter pa_usu_usuario = cmd.Parameters.Add("@usu_usuario", SqlDbType.VarChar, 20);
+            if (!string.IsNullOrWhiteSpace(usuario.User))
+                pa_usu_usuario.Value = usuario.User;
+            else
+                pa_usu_usuario.Value = DBNull.Value;
+            SqlParameter pa_usu_dominio = cmd.Parameters.Add("@usu_dominio", SqlDbType.VarChar, 50);
+            if (!string.IsNullOrWhiteSpace(usuario.Domain))
+                pa_usu_dominio.Value = usuario.Domain;
+            else
+                pa_usu_dominio.Value = DBNull.Value;
+            SqlParameter pa_usu_contraseña = cmd.Parameters.Add("@usu_contraseña", SqlDbType.VarChar, 100);
+            if (!string.IsNullOrWhiteSpace(usuario.Password))
+                pa_usu_contraseña.Value = usuario.Password;
+            else
+                pa_usu_contraseña.Value = DBNull.Value;
+            SqlParameter pa_usu_nombre = cmd.Parameters.Add("@usu_nombre", SqlDbType.VarChar, 100);
+            if (!string.IsNullOrWhiteSpace(usuario.Nombre))
+                pa_usu_nombre.Value = usuario.Nombre;
+            else
+                pa_usu_nombre.Value = DBNull.Value;
+            SqlParameter pa_usu_apellido = cmd.Parameters.Add("@usu_apellido", SqlDbType.VarChar, 100);
+            if (!string.IsNullOrWhiteSpace(usuario.Apellido))
+                pa_usu_apellido.Value = usuario.Apellido;
+            else
+                pa_usu_apellido.Value = DBNull.Value;
+            SqlParameter pa_per_codigo = cmd.Parameters.Add("@per_codigo", SqlDbType.Int);
+            if (usuario.PerfilUsuario != null)
+                pa_per_codigo.Value = usuario.CodigoPerfil;
+            else
+                pa_per_codigo.Value = DBNull.Value;
         }
 
         #endregion Métodos
@@ -308,5 +382,19 @@ namespace DAL.Login
         }
 
         #endregion Equals, HashCode y ToString
+
+        #region Clonable
+        //la hacemos iclonable porque no hay webservices, sino la parcial es la que tiene que ser iclonable!
+        public Usuario Clone()
+        {
+            return (Usuario)this.MemberwiseClone();
+        }
+
+        object ICloneable.Clone()
+        {
+            return Clone();
+        }
+
+        #endregion Clonable
     }
 }

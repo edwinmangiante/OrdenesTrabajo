@@ -57,6 +57,12 @@
     <Compile Include="AEOrdenes.Designer.cs">
       <DependentUpon>AEOrdenes.cs</DependentUpon>
     </Compile>
+    <Compile Include="AEUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AEUsuarios.Designer.cs">
+      <DependentUpon>AEUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClasesUtiles\LimpiarCamposFormulario.cs" />
     <Compile Include="ClasesUtiles\SortableSearchableList.cs" />
     <Compile Include="Colecciones\ColeccionEntidades.cs" />
@@ -103,6 +109,9 @@
     </Compile>
     <EmbeddedResource Include="AEOrdenes.resx">
       <DependentUpon>AEOrdenes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AEUsuarios.resx">
+      <DependentUpon>AEUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Contenedor.resx">
       <DependentUpon>Contenedor.cs</DependentUpon>

@@ -27,7 +27,7 @@ namespace DAL.Login
 
         #endregion Constructores
 
-        #region Métodos 
+        #region Login 
 
         public static Perfil ObtenerPerfilPorUsuario(Usuario usuario, string appName)
         {
@@ -54,7 +54,7 @@ namespace DAL.Login
                 using (SqlCommand cmd = new SqlCommand("dbo.ObtienePerfil", connection))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    AddParameters(cmd, usuario);
+                    AddLoginParameters(cmd, usuario);
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
@@ -79,7 +79,7 @@ namespace DAL.Login
                 throw new Exception("La conexión está vacía.");
         }
 
-        private static void AddParameters(SqlCommand cmd, Usuario usuario)
+        private static void AddLoginParameters(SqlCommand cmd, Usuario usuario)
         {
             SqlParameter pa_usu_usuario = cmd.Parameters.Add("@usu_usuario", SqlDbType.VarChar, 20);
             pa_usu_usuario.Value = usuario.User;
@@ -87,6 +87,92 @@ namespace DAL.Login
             pa_usu_dominio.Value = usuario.Domain;
             SqlParameter pa_per_codigo = cmd.Parameters.Add("@per_codigo", SqlDbType.Int);
             pa_per_codigo.Value = usuario.CodigoPerfil;
+        }
+
+        #endregion Login
+
+        #region Métodos
+
+        public static List<Perfil> ObtenerPerfiles(string appName)
+        {
+            try
+            {
+                SqlConnection connection = null;
+                return ObtenerPerfiles(appName, connection);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private static List<Perfil> ObtenerPerfiles(string appName, SqlConnection connection)
+        {
+            List<Perfil> perfiles = null;
+            connection = Connection.Conectar("login");
+            if (connection != null)
+            {
+                if (connection.State != ConnectionState.Open)
+                    connection.Open();
+
+                using (SqlCommand cmd = new SqlCommand("dbo.GetPerfiles", connection))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    Usuario usu = new Usuario();
+                    usu.User = "";
+                    usu.Domain = "";
+                    usu.CodigoPerfil = 0;
+                    usu.AppName = appName;
+                    AddSearchParameters(cmd, usu);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        perfiles = new List<Perfil>();
+                        while (reader.Read())
+                        {
+                            Perfil perfil = new Perfil();
+                            perfil.Codigo = Convert.ToInt32(reader["per_codigo"]);
+                            perfil.Descripcion = reader["per_descripcion"].ToString();
+                            perfil.Opciones = Opcion.ObtenerPorPerfil(perfil.Codigo, appName);
+
+                            perfiles.Add(perfil);
+                        }
+                    }
+                }
+
+                if (connection.State != ConnectionState.Closed)
+                    connection.Close();
+
+                connection.Dispose();
+
+                return perfiles;
+            }
+            else
+                throw new Exception("La conexión está vacía.");
+        }
+
+        private static void AddSearchParameters(SqlCommand cmd, Usuario usuario)
+        {
+            SqlParameter pa_usu_usuario = cmd.Parameters.Add("@usu_usuario", SqlDbType.VarChar, 20);
+            if (!string.IsNullOrWhiteSpace(usuario.User))
+                pa_usu_usuario.Value = usuario.User;
+            else
+                pa_usu_usuario.Value = DBNull.Value;
+            SqlParameter pa_usu_dominio = cmd.Parameters.Add("@usu_dominio", SqlDbType.VarChar, 50);
+            if (!string.IsNullOrWhiteSpace(usuario.Domain))
+                pa_usu_dominio.Value = usuario.Domain;
+            else
+                pa_usu_dominio.Value = DBNull.Value;
+            SqlParameter pa_per_codigo = cmd.Parameters.Add("@per_codigo", SqlDbType.Int);
+            if (usuario.CodigoPerfil != 0)
+                pa_per_codigo.Value = usuario.CodigoPerfil;
+            else
+                pa_per_codigo.Value = DBNull.Value;
+            SqlParameter pa_opc_aplicacion = cmd.Parameters.Add("@opc_aplicacion", SqlDbType.VarChar, 50);
+            if (!string.IsNullOrWhiteSpace(usuario.AppName))
+                pa_opc_aplicacion.Value = usuario.AppName;
+            else
+                pa_opc_aplicacion.Value = DBNull.Value;
         }
 
         #endregion Métodos

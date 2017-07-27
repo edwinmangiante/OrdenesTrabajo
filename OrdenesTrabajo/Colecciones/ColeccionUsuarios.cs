@@ -33,8 +33,8 @@ namespace OrdenesTrabajo.Colecciones
         internal void Crear(Usuario usuarioNuevo)
         {
             try
-            {//si hubiera un ws, los try catch estarían en la parcial que llamaría a los métodos!!
-                /*Usuario usuario = Usuario.Crear(usuarioNuevo);
+            {
+                Usuario usuario = Usuario.Crear(usuarioNuevo);
                 if (usuario != null)
                 {
                     DataSource.Add(usuario);
@@ -43,7 +43,7 @@ namespace OrdenesTrabajo.Colecciones
                     RaisePropertyChanged("DataSource");
                     RaisePropertyChanged("Current");
                     Controller.MensajeInformacion("Se creó el usuario correctamente.");
-                }*/
+                }
             }
             catch (Exception ex)
             {

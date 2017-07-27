@@ -33,9 +33,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBoxFiltros = new System.Windows.Forms.GroupBox();
+            this.cmbPerfil = new System.Windows.Forms.ComboBox();
             this.chbTodos = new System.Windows.Forms.CheckBox();
             this.chbIncluirBajas = new System.Windows.Forms.CheckBox();
-            this.hacerCombo = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -49,6 +49,14 @@
             this.groupBoxGrilla = new System.Windows.Forms.GroupBox();
             this.panelGrilla = new System.Windows.Forms.Panel();
             this.dataGridViewUsuarios = new System.Windows.Forms.DataGridView();
+            this.Dominio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.User = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Perfil = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaAlta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaBaja = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindingSourceUsuarios = new System.Windows.Forms.BindingSource(this.components);
             this.toolStripGrilla = new System.Windows.Forms.ToolStrip();
             this.btnLimpiar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
@@ -69,28 +77,20 @@
             this.btnExportar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.lblCantidad = new System.Windows.Forms.ToolStripLabel();
-            this.bindingSourceUsuarios = new System.Windows.Forms.BindingSource(this.components);
-            this.Dominio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.User = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Perfil = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaAlta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaBaja = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxFiltros.SuspendLayout();
             this.toolStripSalir.SuspendLayout();
             this.groupBoxGrilla.SuspendLayout();
             this.panelGrilla.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsuarios)).BeginInit();
-            this.toolStripGrilla.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceUsuarios)).BeginInit();
+            this.toolStripGrilla.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxFiltros
             // 
+            this.groupBoxFiltros.Controls.Add(this.cmbPerfil);
             this.groupBoxFiltros.Controls.Add(this.chbTodos);
             this.groupBoxFiltros.Controls.Add(this.chbIncluirBajas);
-            this.groupBoxFiltros.Controls.Add(this.hacerCombo);
             this.groupBoxFiltros.Controls.Add(this.label3);
             this.groupBoxFiltros.Controls.Add(this.txtDescripcion);
             this.groupBoxFiltros.Controls.Add(this.label2);
@@ -104,10 +104,18 @@
             this.groupBoxFiltros.TabStop = false;
             this.groupBoxFiltros.Text = "Filtros";
             // 
+            // cmbPerfil
+            // 
+            this.cmbPerfil.FormattingEnabled = true;
+            this.cmbPerfil.Location = new System.Drawing.Point(301, 22);
+            this.cmbPerfil.Name = "cmbPerfil";
+            this.cmbPerfil.Size = new System.Drawing.Size(150, 21);
+            this.cmbPerfil.TabIndex = 16;
+            // 
             // chbTodos
             // 
             this.chbTodos.AutoSize = true;
-            this.chbTodos.Location = new System.Drawing.Point(465, 66);
+            this.chbTodos.Location = new System.Drawing.Point(484, 66);
             this.chbTodos.Name = "chbTodos";
             this.chbTodos.Size = new System.Drawing.Size(56, 17);
             this.chbTodos.TabIndex = 15;
@@ -118,7 +126,7 @@
             // chbIncluirBajas
             // 
             this.chbIncluirBajas.AutoSize = true;
-            this.chbIncluirBajas.Location = new System.Drawing.Point(465, 24);
+            this.chbIncluirBajas.Location = new System.Drawing.Point(484, 24);
             this.chbIncluirBajas.Name = "chbIncluirBajas";
             this.chbIncluirBajas.Size = new System.Drawing.Size(52, 17);
             this.chbIncluirBajas.TabIndex = 14;
@@ -126,25 +134,18 @@
             this.chbIncluirBajas.UseVisualStyleBackColor = true;
             this.chbIncluirBajas.CheckedChanged += new System.EventHandler(this.chbIncluirBajas_CheckedChanged);
             // 
-            // hacerCombo
-            // 
-            this.hacerCombo.Location = new System.Drawing.Point(300, 22);
-            this.hacerCombo.Name = "hacerCombo";
-            this.hacerCombo.Size = new System.Drawing.Size(125, 20);
-            this.hacerCombo.TabIndex = 2;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(236, 25);
+            this.label3.Location = new System.Drawing.Point(259, 25);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 13);
+            this.label3.Size = new System.Drawing.Size(36, 13);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Dirección: ";
+            this.label3.Text = "Perfil: ";
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(87, 64);
+            this.txtDescripcion.Location = new System.Drawing.Point(121, 64);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(125, 20);
             this.txtDescripcion.TabIndex = 1;
@@ -154,13 +155,13 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 67);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 13);
+            this.label2.Size = new System.Drawing.Size(99, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Descripción: ";
+            this.label2.Text = "Nombre o Apellido: ";
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(87, 22);
+            this.txtUsuario.Location = new System.Drawing.Point(121, 22);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(125, 20);
             this.txtUsuario.TabIndex = 0;
@@ -168,11 +169,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 25);
+            this.label1.Location = new System.Drawing.Point(62, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 13);
+            this.label1.Size = new System.Drawing.Size(49, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Nro Orden: ";
+            this.label1.Text = "Usuario: ";
             // 
             // toolStripSalir
             // 
@@ -260,6 +261,60 @@
             this.dataGridViewUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewUsuarios.Size = new System.Drawing.Size(928, 220);
             this.dataGridViewUsuarios.TabIndex = 0;
+            // 
+            // Dominio
+            // 
+            this.Dominio.DataPropertyName = "Domain";
+            this.Dominio.HeaderText = "Dominio";
+            this.Dominio.Name = "Dominio";
+            // 
+            // User
+            // 
+            this.User.DataPropertyName = "User";
+            this.User.HeaderText = "Usuario";
+            this.User.Name = "User";
+            // 
+            // Apellido
+            // 
+            this.Apellido.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Apellido.DataPropertyName = "Apellido";
+            this.Apellido.HeaderText = "Apellido";
+            this.Apellido.Name = "Apellido";
+            // 
+            // Nombre
+            // 
+            this.Nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Nombre.DataPropertyName = "Nombre";
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            // 
+            // Perfil
+            // 
+            this.Perfil.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Perfil.DataPropertyName = "DescripcionPerfil";
+            this.Perfil.HeaderText = "Perfil";
+            this.Perfil.Name = "Perfil";
+            // 
+            // FechaAlta
+            // 
+            this.FechaAlta.DataPropertyName = "FechaAlta";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Format = "dd/MM/yyyy";
+            this.FechaAlta.DefaultCellStyle = dataGridViewCellStyle1;
+            this.FechaAlta.HeaderText = "Fecha Alta";
+            this.FechaAlta.Name = "FechaAlta";
+            // 
+            // FechaBaja
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Format = "dd/MM/yyyy";
+            this.FechaBaja.DefaultCellStyle = dataGridViewCellStyle2;
+            this.FechaBaja.HeaderText = "Fecha Baja";
+            this.FechaBaja.Name = "FechaBaja";
+            // 
+            // bindingSourceUsuarios
+            // 
+            this.bindingSourceUsuarios.CurrentChanged += new System.EventHandler(this.bindingSourceUsuarios_CurrentChanged);
             // 
             // toolStripGrilla
             // 
@@ -437,60 +492,6 @@
             this.lblCantidad.Size = new System.Drawing.Size(13, 22);
             this.lblCantidad.Text = "c";
             // 
-            // bindingSourceUsuarios
-            // 
-            this.bindingSourceUsuarios.CurrentChanged += new System.EventHandler(this.bindingSourceUsuarios_CurrentChanged);
-            // 
-            // Dominio
-            // 
-            this.Dominio.DataPropertyName = "Domain";
-            this.Dominio.HeaderText = "Dominio";
-            this.Dominio.Name = "Dominio";
-            // 
-            // User
-            // 
-            this.User.DataPropertyName = "User";
-            this.User.HeaderText = "Usuario";
-            this.User.Name = "User";
-            // 
-            // Apellido
-            // 
-            this.Apellido.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Apellido.DataPropertyName = "Apellido";
-            this.Apellido.HeaderText = "Apellido";
-            this.Apellido.Name = "Apellido";
-            // 
-            // Nombre
-            // 
-            this.Nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Nombre.DataPropertyName = "Nombre";
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            // 
-            // Perfil
-            // 
-            this.Perfil.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Perfil.DataPropertyName = "DescripcionPerfil";
-            this.Perfil.HeaderText = "Perfil";
-            this.Perfil.Name = "Perfil";
-            // 
-            // FechaAlta
-            // 
-            this.FechaAlta.DataPropertyName = "FechaAlta";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Format = "dd/MM/yyyy";
-            this.FechaAlta.DefaultCellStyle = dataGridViewCellStyle1;
-            this.FechaAlta.HeaderText = "Fecha Alta";
-            this.FechaAlta.Name = "FechaAlta";
-            // 
-            // FechaBaja
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Format = "dd/MM/yyyy";
-            this.FechaBaja.DefaultCellStyle = dataGridViewCellStyle2;
-            this.FechaBaja.HeaderText = "Fecha Baja";
-            this.FechaBaja.Name = "FechaBaja";
-            // 
             // Usuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -512,9 +513,9 @@
             this.groupBoxGrilla.PerformLayout();
             this.panelGrilla.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsuarios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceUsuarios)).EndInit();
             this.toolStripGrilla.ResumeLayout(false);
             this.toolStripGrilla.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceUsuarios)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -525,7 +526,6 @@
         private System.Windows.Forms.GroupBox groupBoxFiltros;
         private System.Windows.Forms.CheckBox chbTodos;
         private System.Windows.Forms.CheckBox chbIncluirBajas;
-        private System.Windows.Forms.TextBox hacerCombo;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label label2;
@@ -567,5 +567,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Perfil;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaAlta;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaBaja;
+        private System.Windows.Forms.ComboBox cmbPerfil;
     }
 }
