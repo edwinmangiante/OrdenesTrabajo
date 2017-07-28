@@ -30,7 +30,10 @@ namespace OrdenesTrabajo
         private void AEUsuarios_Load(object sender, EventArgs e)
         {
             if (Usuario == null)
+            {
                 this.Text = "Alta Usuario";
+                txtDominio.Text = "VALKIMIA";
+            }
             else
                 ConfigForm();
             FillCombos();
@@ -122,22 +125,22 @@ namespace OrdenesTrabajo
 
         private bool Valida()
         {
-            if(!string.IsNullOrWhiteSpace(txtUsuario.Text))
+            if(string.IsNullOrWhiteSpace(txtUsuario.Text))
             {
                 Controller.MensajeError("Debe completar el usuario.");
                 return false;
             }
-            if (!string.IsNullOrWhiteSpace(txtContraseña.Text))
+            if (string.IsNullOrWhiteSpace(txtContraseña.Text))
             {
                 Controller.MensajeError("Debe completar la contraseña.");
                 return false;
             }
-            if (!string.IsNullOrWhiteSpace(txtNombre.Text))
+            if (string.IsNullOrWhiteSpace(txtNombre.Text))
             {
                 Controller.MensajeError("Debe completar el nombre.");
                 return false;
             }
-            if (!string.IsNullOrWhiteSpace(txtApellido.Text))
+            if (string.IsNullOrWhiteSpace(txtApellido.Text))
             {
                 Controller.MensajeError("Debe completar el apellido.");
                 return false;

@@ -81,7 +81,6 @@ namespace OrdenesTrabajo.Colecciones
                 Usuario.Eliminar(usuarioEliminar);
                 DataSource.Remove(usuarioEliminar);
                 DataSource = new SortableSearchableList<Usuario>(DataSource.OrderBy(x => x.Apellido).ThenBy(x => x.Nombre));
-                //Current = usuario;
                 RaisePropertyChanged("DataSource");
                 RaisePropertyChanged("Current");
                 Controller.MensajeInformacion("Se eliminó el usuario correctamente.");

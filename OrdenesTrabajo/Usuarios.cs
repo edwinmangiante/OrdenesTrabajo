@@ -24,7 +24,7 @@ namespace OrdenesTrabajo
         public Usuarios()
         {
             InitializeComponent();
-
+            ConfigLevelUsr();
             Inicializar();
         }
 
@@ -58,6 +58,7 @@ namespace OrdenesTrabajo
                 {
                     btnVer.Enabled = false;
                     btnEditar.Enabled = false;
+                    btnEliminar.Enabled = false;
                     btnBaja.Enabled = false;
                     btnExportar.Enabled = false;
                 }
@@ -65,6 +66,7 @@ namespace OrdenesTrabajo
                 {
                     btnVer.Enabled = true;
                     btnEditar.Enabled = true;
+                    btnEliminar.Enabled = true;
                     btnBaja.Enabled = true;
                     btnExportar.Enabled = true;
                 }
@@ -73,6 +75,7 @@ namespace OrdenesTrabajo
                 {
                     btnVer.Enabled = usuarios.Current != null;
                     btnEditar.Enabled = usuarios.Current != null;
+                    btnEliminar.Enabled = usuarios.Current != null;
                     if (usuarios.Current != null)
                     {
                         if (usuarios.Current.FechaBaja.HasValue)
@@ -93,6 +96,73 @@ namespace OrdenesTrabajo
                     }
                 }
             };
+        }
+
+        private void ConfigLevelUsr()
+        {
+            if (Controller.Usuario.PerfilUsuario.Opciones.Any(x => x.Descripcion == "Usuarios"))
+            {
+                Opcion opcion = Controller.Usuario.PerfilUsuario.Opciones.Where(x => x.Descripcion == "Usuarios").First();
+
+                if (opcion.CanSelect)
+                {
+                    btnVer.Visible = true;
+                    tssVer.Visible = true;
+                    tssBuscar.Visible = true;
+                    btnBuscar.Visible = true;
+                }
+                else
+                {
+                    btnVer.Visible = false;
+                    tssVer.Visible = false;
+                    tssBuscar.Visible = false;
+                    btnBuscar.Visible = false;
+                }
+                if (opcion.CanInsert)
+                {
+                    btnAgregar.Visible = true;
+                    tssAgregar.Visible = true;
+                }
+                else
+                {
+                    btnAgregar.Visible = false;
+                    tssAgregar.Visible = false;
+                }
+                if (opcion.CanUpdate)
+                {
+                    btnEditar.Visible = true;
+                    tssEditar.Visible = true;
+                }
+                else
+                {
+                    btnEditar.Visible = false;
+                    tssEditar.Visible = false;
+                }
+                if (opcion.CanDelete)
+                {
+                    btnEliminar.Visible = true;
+                    tssEliminar.Visible = true;
+                }
+                else
+                {
+                    btnEliminar.Visible = false;
+                    tssEliminar.Visible = false;
+                }
+                if (opcion.CanBajaAlta)
+                {
+                    btnBaja.Visible = true;
+                    tssBaja.Visible = true;
+                    btnAlta.Visible = true;
+                    tssAlta.Visible = true;
+                }
+                else
+                {
+                    btnBaja.Visible = false;
+                    tssBaja.Visible = false;
+                    btnAlta.Visible = false;
+                    tssAlta.Visible = false;
+                }
+            }
         }
 
         private void FillCombos()
@@ -179,7 +249,9 @@ namespace OrdenesTrabajo
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-
+            if (usuarios.Current != null)
+                if (Controller.MensajeYesNo("¿Está seguro que desea eliminar el usuario seleccionado?"))
+                    usuarios.Eliminar(usuarios.Current);
         }
 
         private void btnVer_Click(object sender, EventArgs e)
@@ -240,25 +312,15 @@ namespace OrdenesTrabajo
         private void btnBaja_Click(object sender, EventArgs e)
         {
             if (usuarios.Current != null)
-                using (AEUsuarios aeUsu = new AEUsuarios())
-                {
-                    aeUsu.Usuario = usuarios.Current.Clone();
-                    aeUsu.Accion = "Editar";
-                    if (aeUsu.ShowDialog() == DialogResult.OK)
-                        usuarios.Baja(aeUsu.Usuario);
-                }
+                if(Controller.MensajeYesNo("¿Está seguro que desea dar de baja el usuario seleccionado?"))
+                    usuarios.Baja(usuarios.Current);
         }
 
         private void btnAlta_Click(object sender, EventArgs e)
         {
             if (usuarios.Current != null)
-                using (AEUsuarios aeUsu = new AEUsuarios())
-                {
-                    aeUsu.Usuario = usuarios.Current.Clone();
-                    aeUsu.Accion = "Editar";
-                    if (aeUsu.ShowDialog() == DialogResult.OK)
-                        usuarios.Alta(aeUsu.Usuario);
-                }
+                if (Controller.MensajeYesNo("¿Está seguro que desea dar de alta el usuario seleccionado?"))
+                    usuarios.Alta(usuarios.Current);
         }
 
         private void btnExportar_Click(object sender, EventArgs e)

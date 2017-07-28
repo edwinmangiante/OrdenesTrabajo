@@ -1,0 +1,106 @@
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Fecha: 28/07/2017 14:00:39
+User: dedwin			Machine Name: RPUESTO02			Ip Address: fe80::6c64:f6e6:ebe9:1b7d%14
+Método: ObtenerPorPK			UserLog en App: prueba			Tipo de Error: System.Data.SqlClient.SqlException
+Mensaje Excepción: 
+Procedure or function ObtenerUsuario has too many arguments specified.
+Excepción: 
+System.Data.SqlClient.SqlException (0x80131904): Procedure or function ObtenerUsuario has too many arguments specified.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader()
+   en DAL.Login.Usuario.ObtenerPorPK(Usuario usu, SqlConnection connection) en D:\Dedwin\Proyectos\OrdenesTrabajo\DAL\Login\Usuario.cs:línea 176
+   en DAL.Login.Usuario.ObtenerPorPK(Usuario usuario) en D:\Dedwin\Proyectos\OrdenesTrabajo\DAL\Login\Usuario.cs:línea 128
+ClientConnectionId:c57226e9-5402-4fae-8c82-2747857f990d
+Error Number:8144,State:2,Class:16
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Fecha: 28/07/2017 14:00:39
+User: dedwin			Machine Name: RPUESTO02			Ip Address: fe80::6c64:f6e6:ebe9:1b7d%14
+Método: Crear			UserLog en App: 			Tipo de Error: System.Data.SqlClient.SqlException
+Mensaje Excepción: 
+Procedure or function ObtenerUsuario has too many arguments specified.
+Excepción: 
+System.Data.SqlClient.SqlException (0x80131904): Procedure or function ObtenerUsuario has too many arguments specified.
+   en DAL.Login.Usuario.ObtenerPorPK(Usuario usuario) en D:\Dedwin\Proyectos\OrdenesTrabajo\DAL\Login\Usuario.cs:línea 136
+   en DAL.Login.Usuario.Crear(Usuario usuarioACrear, SqlConnection connection) en D:\Dedwin\Proyectos\OrdenesTrabajo\DAL\Login\Usuario.cs:línea 338
+   en DAL.Login.Usuario.Crear(Usuario usuarioACrear) en D:\Dedwin\Proyectos\OrdenesTrabajo\DAL\Login\Usuario.cs:línea 271
+ClientConnectionId:c57226e9-5402-4fae-8c82-2747857f990d
+Error Number:8144,State:2,Class:16
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Fecha: 28/07/2017 14:01:04
+User: dedwin			Machine Name: RPUESTO02			Ip Address: fe80::6c64:f6e6:ebe9:1b7d%14
+Método: ObtenerPorPK			UserLog en App: prueba			Tipo de Error: System.Data.SqlClient.SqlException
+Mensaje Excepción: 
+Procedure or function ObtenerUsuario has too many arguments specified.
+Excepción: 
+System.Data.SqlClient.SqlException (0x80131904): Procedure or function ObtenerUsuario has too many arguments specified.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader()
+   en DAL.Login.Usuario.ObtenerPorPK(Usuario usu, SqlConnection connection) en D:\Dedwin\Proyectos\OrdenesTrabajo\DAL\Login\Usuario.cs:línea 176
+   en DAL.Login.Usuario.ObtenerPorPK(Usuario usuario) en D:\Dedwin\Proyectos\OrdenesTrabajo\DAL\Login\Usuario.cs:línea 128
+ClientConnectionId:1a5e199c-f208-42fe-9146-9460eab84813
+Error Number:8144,State:2,Class:16
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Fecha: 28/07/2017 14:01:04
+User: dedwin			Machine Name: RPUESTO02			Ip Address: fe80::6c64:f6e6:ebe9:1b7d%14
+Método: Editar			UserLog en App: 			Tipo de Error: System.Data.SqlClient.SqlException
+Mensaje Excepción: 
+Procedure or function ObtenerUsuario has too many arguments specified.
+Excepción: 
+System.Data.SqlClient.SqlException (0x80131904): Procedure or function ObtenerUsuario has too many arguments specified.
+   en DAL.Login.Usuario.ObtenerPorPK(Usuario usuario) en D:\Dedwin\Proyectos\OrdenesTrabajo\DAL\Login\Usuario.cs:línea 136
+   en DAL.Login.Usuario.Editar(Usuario usuarioEditar, SqlConnection connection) en D:\Dedwin\Proyectos\OrdenesTrabajo\DAL\Login\Usuario.cs:línea 362
+   en DAL.Login.Usuario.Editar(Usuario usuarioAEditar) en D:\Dedwin\Proyectos\OrdenesTrabajo\DAL\Login\Usuario.cs:línea 288
+ClientConnectionId:1a5e199c-f208-42fe-9146-9460eab84813
+Error Number:8144,State:2,Class:16
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Fecha: 28/07/2017 14:06:21
+User: dedwin			Machine Name: RPUESTO02			Ip Address: fe80::6c64:f6e6:ebe9:1b7d%14
+Método: ObtenerTodos			UserLog en App: 			Tipo de Error: System.InvalidOperationException
+Mensaje Excepción: 
+No se ha inicializado la propiedad ConnectionString.
+Excepción: 
+System.InvalidOperationException: No se ha inicializado la propiedad ConnectionString.
+   en System.Data.SqlClient.SqlConnection.PermissionDemand()
+   en System.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   en System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   en System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   en System.Data.SqlClient.SqlConnection.Open()
+   en DAL.OrdenTrabajo.ObtenerTodos(ParametrosBusquedaOrdenes parametros, SqlConnection connection) en D:\Dedwin\Proyectos\OrdenesTrabajo\DAL\OrdenTrabajo.cs:línea 249
+   en DAL.OrdenTrabajo.ObtenerTodos(ParametrosBusquedaOrdenes parametros) en D:\Dedwin\Proyectos\OrdenesTrabajo\DAL\OrdenTrabajo.cs:línea 83
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+

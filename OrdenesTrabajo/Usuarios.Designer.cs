@@ -59,23 +59,23 @@
             this.bindingSourceUsuarios = new System.Windows.Forms.BindingSource(this.components);
             this.toolStripGrilla = new System.Windows.Forms.ToolStrip();
             this.btnLimpiar = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.tssLimpiar = new System.Windows.Forms.ToolStripSeparator();
             this.btnEliminar = new System.Windows.Forms.ToolStripButton();
             this.tssEliminar = new System.Windows.Forms.ToolStripSeparator();
             this.btnVer = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.tssVer = new System.Windows.Forms.ToolStripSeparator();
             this.btnBuscar = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.tssBuscar = new System.Windows.Forms.ToolStripSeparator();
             this.btnAgregar = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.tssAgregar = new System.Windows.Forms.ToolStripSeparator();
             this.btnEditar = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.tssEditar = new System.Windows.Forms.ToolStripSeparator();
             this.btnBaja = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.tssBaja = new System.Windows.Forms.ToolStripSeparator();
             this.btnAlta = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
+            this.tssAlta = new System.Windows.Forms.ToolStripSeparator();
             this.btnExportar = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.tssExportar = new System.Windows.Forms.ToolStripSeparator();
             this.lblCantidad = new System.Windows.Forms.ToolStripLabel();
             this.groupBoxFiltros.SuspendLayout();
             this.toolStripSalir.SuspendLayout();
@@ -320,23 +320,23 @@
             // 
             this.toolStripGrilla.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnLimpiar,
-            this.toolStripSeparator7,
+            this.tssLimpiar,
             this.btnEliminar,
             this.tssEliminar,
             this.btnVer,
-            this.toolStripSeparator8,
+            this.tssVer,
             this.btnBuscar,
-            this.toolStripSeparator2,
+            this.tssBuscar,
             this.btnAgregar,
-            this.toolStripSeparator5,
+            this.tssAgregar,
             this.btnEditar,
-            this.toolStripSeparator3,
+            this.tssEditar,
             this.btnBaja,
-            this.toolStripSeparator4,
+            this.tssBaja,
             this.btnAlta,
-            this.toolStripSeparator11,
+            this.tssAlta,
             this.btnExportar,
-            this.toolStripSeparator6,
+            this.tssExportar,
             this.lblCantidad});
             this.toolStripGrilla.Location = new System.Drawing.Point(3, 16);
             this.toolStripGrilla.Name = "toolStripGrilla";
@@ -354,10 +354,10 @@
             this.btnLimpiar.ToolTipText = "Limpiar";
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
-            // toolStripSeparator7
+            // tssLimpiar
             // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 25);
+            this.tssLimpiar.Name = "tssLimpiar";
+            this.tssLimpiar.Size = new System.Drawing.Size(6, 25);
             // 
             // btnEliminar
             // 
@@ -386,10 +386,10 @@
             this.btnVer.ToolTipText = "Ver";
             this.btnVer.Click += new System.EventHandler(this.btnVer_Click);
             // 
-            // toolStripSeparator8
+            // tssVer
             // 
-            this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 25);
+            this.tssVer.Name = "tssVer";
+            this.tssVer.Size = new System.Drawing.Size(6, 25);
             // 
             // btnBuscar
             // 
@@ -401,10 +401,10 @@
             this.btnBuscar.ToolTipText = "Buscar";
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // toolStripSeparator2
+            // tssBuscar
             // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            this.tssBuscar.Name = "tssBuscar";
+            this.tssBuscar.Size = new System.Drawing.Size(6, 25);
             // 
             // btnAgregar
             // 
@@ -416,10 +416,10 @@
             this.btnAgregar.ToolTipText = "Agregar";
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
-            // toolStripSeparator5
+            // tssAgregar
             // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
+            this.tssAgregar.Name = "tssAgregar";
+            this.tssAgregar.Size = new System.Drawing.Size(6, 25);
             // 
             // btnEditar
             // 
@@ -432,10 +432,10 @@
             this.btnEditar.ToolTipText = "Editar";
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
-            // toolStripSeparator3
+            // tssEditar
             // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            this.tssEditar.Name = "tssEditar";
+            this.tssEditar.Size = new System.Drawing.Size(6, 25);
             // 
             // btnBaja
             // 
@@ -448,10 +448,10 @@
             this.btnBaja.ToolTipText = "Baja";
             this.btnBaja.Click += new System.EventHandler(this.btnBaja_Click);
             // 
-            // toolStripSeparator4
+            // tssBaja
             // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
+            this.tssBaja.Name = "tssBaja";
+            this.tssBaja.Size = new System.Drawing.Size(6, 25);
             // 
             // btnAlta
             // 
@@ -464,10 +464,10 @@
             this.btnAlta.ToolTipText = "Alta";
             this.btnAlta.Click += new System.EventHandler(this.btnAlta_Click);
             // 
-            // toolStripSeparator11
+            // tssAlta
             // 
-            this.toolStripSeparator11.Name = "toolStripSeparator11";
-            this.toolStripSeparator11.Size = new System.Drawing.Size(6, 25);
+            this.tssAlta.Name = "tssAlta";
+            this.tssAlta.Size = new System.Drawing.Size(6, 25);
             // 
             // btnExportar
             // 
@@ -480,10 +480,10 @@
             this.btnExportar.ToolTipText = "Exportar a Excel";
             this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
             // 
-            // toolStripSeparator6
+            // tssExportar
             // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
+            this.tssExportar.Name = "tssExportar";
+            this.tssExportar.Size = new System.Drawing.Size(6, 25);
             // 
             // lblCantidad
             // 
@@ -539,23 +539,23 @@
         private System.Windows.Forms.GroupBox groupBoxGrilla;
         private System.Windows.Forms.ToolStrip toolStripGrilla;
         private System.Windows.Forms.ToolStripButton btnLimpiar;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.ToolStripSeparator tssLimpiar;
         private System.Windows.Forms.ToolStripButton btnEliminar;
         private System.Windows.Forms.ToolStripSeparator tssEliminar;
         private System.Windows.Forms.ToolStripButton btnVer;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
+        private System.Windows.Forms.ToolStripSeparator tssVer;
         private System.Windows.Forms.ToolStripButton btnBuscar;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripSeparator tssBuscar;
         private System.Windows.Forms.ToolStripButton btnAgregar;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripSeparator tssAgregar;
         private System.Windows.Forms.ToolStripButton btnEditar;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripSeparator tssEditar;
         private System.Windows.Forms.ToolStripButton btnBaja;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripSeparator tssBaja;
         private System.Windows.Forms.ToolStripButton btnAlta;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
+        private System.Windows.Forms.ToolStripSeparator tssAlta;
         private System.Windows.Forms.ToolStripButton btnExportar;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripSeparator tssExportar;
         private System.Windows.Forms.ToolStripLabel lblCantidad;
         private System.Windows.Forms.Panel panelGrilla;
         private System.Windows.Forms.DataGridView dataGridViewUsuarios;
