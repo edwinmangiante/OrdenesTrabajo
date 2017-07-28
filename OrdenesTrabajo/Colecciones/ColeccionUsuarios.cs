@@ -51,5 +51,80 @@ namespace OrdenesTrabajo.Colecciones
                     "intente nuevamente y si el error persiste comuniquese con Sistemas. (" + ex.Message + ").");
             }
         }
+
+        internal void Editar(Usuario usuarioEditar)
+        {
+            try
+            {
+                Usuario usuario = Usuario.Editar(usuarioEditar);
+                if (usuario != null)
+                {
+                    /*DataSource.Add(usuario);
+                    DataSource = new SortableSearchableList<Usuario>(DataSource.OrderBy(x => x.Apellido).ThenBy(x => x.Nombre));
+                    Current = usuario;*/
+                    RaisePropertyChanged("DataSource");
+                    RaisePropertyChanged("Current");
+                    Controller.MensajeInformacion("Se editó el usuario correctamente.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Controller.MensajeError("Ocurrió un error al intentar editar el usuario, " +
+                    "intente nuevamente y si el error persiste comuniquese con Sistemas. (" + ex.Message + ").");
+            }
+        }
+
+        internal void Eliminar(Usuario usuarioEliminar)
+        {
+            try
+            {
+                Usuario.Eliminar(usuarioEliminar);
+                DataSource.Remove(usuarioEliminar);
+                DataSource = new SortableSearchableList<Usuario>(DataSource.OrderBy(x => x.Apellido).ThenBy(x => x.Nombre));
+                //Current = usuario;
+                RaisePropertyChanged("DataSource");
+                RaisePropertyChanged("Current");
+                Controller.MensajeInformacion("Se eliminó el usuario correctamente.");
+            }
+            catch (Exception ex)
+            {
+                Controller.MensajeError("Ocurrió un error al intentar eliminar el usuario, " +
+                    "intente nuevamente y si el error persiste comuniquese con Sistemas. (" + ex.Message + ").");
+            }
+        }
+
+        internal void Baja(Usuario usuarioBaja)
+        {
+            try
+            {
+                usuarioBaja.FechaBaja = DateTime.Now;
+                Usuario.Editar(usuarioBaja);
+                RaisePropertyChanged("DataSource");
+                RaisePropertyChanged("Current");
+                Controller.MensajeInformacion("Se dió de baja el usuario correctamente.");
+            }
+            catch (Exception ex)
+            {
+                Controller.MensajeError("Ocurrió un error al intentar eliminar el usuario, " +
+                    "intente nuevamente y si el error persiste comuniquese con Sistemas. (" + ex.Message + ").");
+            }
+        }
+
+        internal void Alta(Usuario usuarioAlta)
+        {
+            try
+            {
+                usuarioAlta.FechaBaja = null;
+                Usuario.Editar(usuarioAlta);
+                RaisePropertyChanged("DataSource");
+                RaisePropertyChanged("Current");
+                Controller.MensajeInformacion("Se dió de baja el usuario correctamente.");
+            }
+            catch (Exception ex)
+            {
+                Controller.MensajeError("Ocurrió un error al intentar eliminar el usuario, " +
+                    "intente nuevamente y si el error persiste comuniquese con Sistemas. (" + ex.Message + ").");
+            }
+        }
     }
 }

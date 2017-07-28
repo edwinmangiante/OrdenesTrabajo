@@ -50,7 +50,6 @@ namespace DAL.Login
             usuario.DescripcionPerfil = usuario.PerfilUsuario.Descripcion;
             usuario.FechaAlta = Convert.ToDateTime(reader["usu_fecha_alta"]);
             usuario.FechaBaja = reader["usu_fecha_baja"] != DBNull.Value ? Convert.ToDateTime(reader["usu_fecha_baja"]) : (DateTime?)null;
-            //return usuario;
         }
 
         #endregion Constructores
@@ -71,6 +70,9 @@ namespace DAL.Login
             }
             catch (Exception ex)
             {
+                string hostName = Dns.GetHostName();
+                string ipAddress = Dns.GetHostEntry(hostName).AddressList[0].ToString();
+                LogError.CreateLog(ex, System.Reflection.MethodBase.GetCurrentMethod().Name, usuario.User, ipAddress);
                 throw ex;
             }
         }
@@ -83,7 +85,6 @@ namespace DAL.Login
                 if (connection.State != ConnectionState.Open)
                     connection.Open();
 
-                //Usuario usu = null;
                 using (SqlCommand cmd = new SqlCommand("dbo.ObtenerUsuario", connection))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -117,7 +118,7 @@ namespace DAL.Login
 
         #endregion Login
 
-        #region Métodos
+        #region Busqueda
 
         public static Usuario ObtenerPorPK(Usuario usuario)
         {
@@ -131,7 +132,7 @@ namespace DAL.Login
                 //si hubiera ws ahí tendría que haber otro try catch y ahí loguear el error!
                 string hostName = Dns.GetHostName();
                 string ipAddress = Dns.GetHostEntry(hostName).AddressList[0].ToString();
-                LogError.CreateLog(ex, System.Reflection.MethodBase.GetCurrentMethod().Name, "", ipAddress);
+                LogError.CreateLog(ex, System.Reflection.MethodBase.GetCurrentMethod().Name, usuario.User, ipAddress);
                 throw ex;
             }
         }
@@ -142,23 +143,6 @@ namespace DAL.Login
             {
                 using (SqlConnection connection = null)
                     return ObtenerPorParametros(parametros, connection);
-            }
-            catch (Exception ex)
-            {
-                //si hubiera ws ahí tendría que haber otro try catch y ahí loguear el error!
-                string hostName = Dns.GetHostName();
-                string ipAddress = Dns.GetHostEntry(hostName).AddressList[0].ToString();
-                LogError.CreateLog(ex, System.Reflection.MethodBase.GetCurrentMethod().Name, "", ipAddress);
-                throw ex;
-            }
-        }
-
-        public static Usuario Crear(Usuario usuarioACrear)
-        {
-            try
-            {
-                using (SqlConnection connection = null)
-                    return Crear(usuarioACrear, connection);
             }
             catch (Exception ex)
             {
@@ -241,30 +225,6 @@ namespace DAL.Login
                 throw new Exception("La conexión está vacía.");
         }
 
-        private static Usuario Crear(Usuario usuarioACrear, SqlConnection connection)
-        {
-            Usuario usr = new Usuario();
-            connection = Connection.Conectar("login");
-            if (connection != null)
-            {
-                if (connection.State != ConnectionState.Open)
-                    connection.Open();
-
-                using (SqlCommand cmd = new SqlCommand("dbo.ABMUsuarios", connection))
-                {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    AddABMParameters(cmd, usuarioACrear);
-
-                    int a = cmd.ExecuteNonQuery();
-
-                    usr.Domain = usuarioACrear.Domain;
-                    usr.User = usuarioACrear.User;
-                }
-            }
-
-            return ObtenerPorPK(usr);
-        }
-
         private static void AddSearchParameters(SqlCommand cmd, ParametrosBusquedaUsuarios parametros)
         {
             SqlParameter pa_usu_usuario = cmd.Parameters.Add("@usu_usuario", SqlDbType.VarChar, 20);
@@ -299,7 +259,128 @@ namespace DAL.Login
                 pa_incluir_bajas.Value = DBNull.Value;
         }
 
-        private static void AddABMParameters(SqlCommand cmd, Usuario usuario)
+        #endregion Busqueda
+
+        #region ABM
+
+        public static Usuario Crear(Usuario usuarioACrear)
+        {
+            try
+            {
+                using (SqlConnection connection = null)
+                    return Crear(usuarioACrear, connection);
+            }
+            catch (Exception ex)
+            {
+                //si hubiera ws ahí tendría que haber otro try catch y ahí loguear el error!
+                string hostName = Dns.GetHostName();
+                string ipAddress = Dns.GetHostEntry(hostName).AddressList[0].ToString();
+                LogError.CreateLog(ex, System.Reflection.MethodBase.GetCurrentMethod().Name, "", ipAddress);
+                throw ex;
+            }
+        }
+
+        public static Usuario Editar(Usuario usuarioAEditar)
+        {
+            try
+            {
+                using (SqlConnection connection = null)
+                    return Editar(usuarioAEditar, connection);
+            }
+            catch (Exception ex)
+            {
+                //si hubiera ws ahí tendría que haber otro try catch y ahí loguear el error!
+                string hostName = Dns.GetHostName();
+                string ipAddress = Dns.GetHostEntry(hostName).AddressList[0].ToString();
+                LogError.CreateLog(ex, System.Reflection.MethodBase.GetCurrentMethod().Name, "", ipAddress);
+                throw ex;
+            }
+        }
+
+        public static void Eliminar(Usuario usuarioAEliminar)
+        {
+            try
+            {
+                using (SqlConnection connection = null)
+                    Editar(usuarioAEliminar, connection);
+            }
+            catch (Exception ex)
+            {
+                //si hubiera ws ahí tendría que haber otro try catch y ahí loguear el error!
+                string hostName = Dns.GetHostName();
+                string ipAddress = Dns.GetHostEntry(hostName).AddressList[0].ToString();
+                LogError.CreateLog(ex, System.Reflection.MethodBase.GetCurrentMethod().Name, "", ipAddress);
+                throw ex;
+            }
+        }
+
+        private static Usuario Crear(Usuario usuarioACrear, SqlConnection connection)
+        {
+            Usuario usr = new Usuario();
+            connection = Connection.Conectar("login");
+            if (connection != null)
+            {
+                if (connection.State != ConnectionState.Open)
+                    connection.Open();
+
+                using (SqlCommand cmd = new SqlCommand("dbo.ABMUsuarios", connection))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    AddABMParameters(cmd, usuarioACrear, "INSERT");
+
+                    int a = cmd.ExecuteNonQuery();
+
+                    usr.Domain = usuarioACrear.Domain;
+                    usr.User = usuarioACrear.User;
+                }
+            }
+
+            return ObtenerPorPK(usr);
+        }
+
+        private static Usuario Editar(Usuario usuarioEditar, SqlConnection connection)
+        {
+            Usuario usr = new Usuario();
+            connection = Connection.Conectar("login");
+            if (connection != null)
+            {
+                if (connection.State != ConnectionState.Open)
+                    connection.Open();
+
+                using (SqlCommand cmd = new SqlCommand("dbo.ABMUsuarios", connection))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    AddABMParameters(cmd, usuarioEditar, "UPDATE");
+
+                    int a = cmd.ExecuteNonQuery();
+
+                    usr.Domain = usuarioEditar.Domain;
+                    usr.User = usuarioEditar.User;
+                }
+            }
+
+            return ObtenerPorPK(usr);
+        }
+
+        private static void Eliminar(Usuario usuarioEliminar, SqlConnection connection)
+        {
+            connection = Connection.Conectar("login");
+            if (connection != null)
+            {
+                if (connection.State != ConnectionState.Open)
+                    connection.Open();
+
+                using (SqlCommand cmd = new SqlCommand("dbo.ABMUsuarios", connection))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    AddABMParameters(cmd, usuarioEliminar, "DELETE");
+
+                    int a = cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        private static void AddABMParameters(SqlCommand cmd, Usuario usuario, string accion)
         {
             SqlParameter pa_usu_usuario = cmd.Parameters.Add("@usu_usuario", SqlDbType.VarChar, 20);
             if (!string.IsNullOrWhiteSpace(usuario.User))
@@ -331,9 +412,16 @@ namespace DAL.Login
                 pa_per_codigo.Value = usuario.CodigoPerfil;
             else
                 pa_per_codigo.Value = DBNull.Value;
+            SqlParameter pa_usu_fecha_baja = cmd.Parameters.Add("@usu_fecha_baja", SqlDbType.DateTime);
+            if (usuario.FechaBaja.HasValue)
+                pa_usu_fecha_baja.Value = usuario.FechaBaja.Value;
+            else
+                pa_usu_fecha_baja.Value = DBNull.Value;
+            SqlParameter pa_accion = cmd.Parameters.Add("@accion", SqlDbType.VarChar,50);
+            pa_accion.Value = accion;
         }
 
-        #endregion Métodos
+        #endregion ABM
 
         #region Equals, HashCode y ToString
 

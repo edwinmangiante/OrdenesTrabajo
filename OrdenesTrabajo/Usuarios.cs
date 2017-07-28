@@ -233,18 +233,32 @@ namespace OrdenesTrabajo
                     aeUsu.Usuario = usuarios.Current.Clone();
                     aeUsu.Accion = "Editar";
                     if (aeUsu.ShowDialog() == DialogResult.OK)
-                        usuarios.Crear(aeUsu.Usuario);
+                        usuarios.Editar(aeUsu.Usuario);
                 }
         }
 
         private void btnBaja_Click(object sender, EventArgs e)
         {
-
+            if (usuarios.Current != null)
+                using (AEUsuarios aeUsu = new AEUsuarios())
+                {
+                    aeUsu.Usuario = usuarios.Current.Clone();
+                    aeUsu.Accion = "Editar";
+                    if (aeUsu.ShowDialog() == DialogResult.OK)
+                        usuarios.Baja(aeUsu.Usuario);
+                }
         }
 
         private void btnAlta_Click(object sender, EventArgs e)
         {
-
+            if (usuarios.Current != null)
+                using (AEUsuarios aeUsu = new AEUsuarios())
+                {
+                    aeUsu.Usuario = usuarios.Current.Clone();
+                    aeUsu.Accion = "Editar";
+                    if (aeUsu.ShowDialog() == DialogResult.OK)
+                        usuarios.Alta(aeUsu.Usuario);
+                }
         }
 
         private void btnExportar_Click(object sender, EventArgs e)
